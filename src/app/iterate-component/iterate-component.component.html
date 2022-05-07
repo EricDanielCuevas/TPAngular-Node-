@@ -1,0 +1,5 @@
+<p>iterate-component works!</p>
+<li *ngFor="let product of products; index as i; first as isFirst">
+    {{i}}){{product.name}}-{{product.details}} <span *ngIf="isFirst">(*primero)</span>
+
+</li>
