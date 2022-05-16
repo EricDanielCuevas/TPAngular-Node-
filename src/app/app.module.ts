@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewDemoComponent } from './view-demo/view-demo.component';
 import { IterateComponentComponent } from './iterate-component/iterate-component.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewDemoComponent,
-    IterateComponentComponent
+    IterateComponentComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
