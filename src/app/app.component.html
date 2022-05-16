@@ -1,23 +1,24 @@
+<app-navbar></app-navbar>
 <p>Main View Works!</p>
 
 <div [formGroup]='formSignup'>
         <p>Email</p>
-        <input 
-              id="email" 
-              formControlName="email"  
-              
+        <input
+              id="email"
+              formControlName="email"
+
       />
       <p>Username</p>
-        <input 
-                      id="username" 
-                      formControlName="username"  
-                      
+        <input
+                      id="username"
+                      formControlName="username"
+
               />
       <p>Password</p>
-        <input 
-              id="password" 
-              formControlName="password"  
-              
+        <input
+              id="password"
+              formControlName="password"
+
       />
 
       </div>
@@ -28,10 +29,10 @@
 <ng-template #elseBlock><p>Nos gustaria saludarlo, cual es su nombre?</p></ng-template>
 
 <div [formGroup]='formGroup'>
-  <input 
-                id="username" 
-                formControlName="username"  
-                
+  <input
+                id="username"
+                formControlName="username"
+
         />
 </div>
 <button (click)='onSubmit();'  >Submit</button>
