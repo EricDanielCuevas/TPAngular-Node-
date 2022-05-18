@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ViewDemoComponent } from './view-demo/view-demo.component';
 import { IterateComponentComponent } from './iterate-component/iterate-component.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     AppComponent,
     ViewDemoComponent,
     IterateComponentComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
