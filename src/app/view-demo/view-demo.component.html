@@ -1,8 +1,20 @@
-<p>view-demo works!</p>
-<p></p>
+<!-- <p>view-demo works!</p> -->
+<!-- <p></p>
 <a routerLink="/" routerLinkActive="active">Return to main Component</a>
-<p></p>
-<button (click)='onClick();'  >Main Component Redirect</button>
+<p></p> -->
+
+<div *ngIf="username; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><p>Newsletter enviado con exito a :  {{username}}</p></ng-template>
+<ng-template #elseBlock><p></p></ng-template>
+
+<div [formGroup]='formGroup'>
+  <p>Cual es su nombre?</p>
+  <input id="name" formControlName="name"/>
+  <p>ingrese su email</p>
+  <input id="username" formControlName="username"/>
+</div>
+<button (click)='onSubmit();'  >Submit</button>
+<button (click)='onClick();'  >Mostrar menos</button>
 
 <p></p>
 <button (click)='changeKitty();'  >Cambiar Gatito</button>

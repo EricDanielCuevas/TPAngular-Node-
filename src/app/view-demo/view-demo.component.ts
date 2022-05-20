@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { share, catchError } from 'rxjs/operators';
@@ -14,18 +14,32 @@ import { Response } from './response';
 export class ViewDemoComponent implements OnInit {
 
   url: String;
+  formGroup: FormGroup;
+  name: String;
+  username: String;
 
-  constructor(protected router:Router, protected httpClient: HttpClient) { 
+  constructor(protected router:Router, private formBuilder: FormBuilder,protected httpClient: HttpClient) { 
     console.log('viewdemo constructor');
 
   }
-
+  
   ngOnInit(): void {
+    console.log('Iniciando appComponent');
+    this.formGroup = this.formBuilder.group({
+      username: new FormControl('',  Validators.required),
+      name: new FormControl('',  Validators.required),
+    });
   }
 
   onClick(){
     console.log('ejecutando redirect en view demo');
     this.router.navigate(['/'])
+  }
+
+  onSubmit(){
+    console.log('ejecutando submit');
+    console.log('username:' + this.formGroup.get('username').value);
+    this.username = this.formGroup.get('username').value;
   }
 
   changeKitty(){
