@@ -8,6 +8,14 @@ body {
     color: #5a5a5a;
   }
   
+  img {
+    opacity:0.6;
+  }
+
+  .container-img{
+    background: rgb(0, 0, 0);
+    background-blend-mode: darken;
+  }
   
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
