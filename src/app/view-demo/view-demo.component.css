@@ -12,6 +12,7 @@ body{
     border-radius: 20px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.2);
     margin-left: 50em;
+    margin-bottom: 90px;
 }
 .card h3{
     color: #111;
