@@ -3,22 +3,27 @@
 <a routerLink="/" routerLinkActive="active">Return to main Component</a>
 <p></p> -->
 
-<div *ngIf="username; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock><p>Newsletter enviado con exito a :  {{username}}</p></ng-template>
-<ng-template #elseBlock><p></p></ng-template>
 
-<div [formGroup]='formGroup'>
-  <p>Cual es su nombre?</p>
-  <input id="name" formControlName="name"/>
-  <p>ingrese su email</p>
-  <input id="username" formControlName="username"/>
-</div>
-<button (click)='onSubmit();'  >Submit</button>
-<button (click)='onClick();'  >Mostrar menos</button>
 
-<p></p>
-<button (click)='changeKitty();'  >Cambiar Gatito</button>
-<p></p>
-<div class="gatito">
-    <img src={{url}} >
+
+<div *ngIf="email; then thenBlock"></div>
+<ng-template #thenBlock>
+  <p class="text-success">Newsletter enviado con exito a : {{email}}</p>
+</ng-template>
+
+<div class="col text-center">
+  <div [formGroup]='formGroup' class="card">
+    <h3> Newsletter</h3>
+    <div class="inputbox">
+      <input id="name" formControlName="name" type="text" name="name" class="form-control" required="required" />
+      <span>Nombre completo</span>
+    </div>
+
+    <div class="inputbox">
+      <input id="email" formControlName="email" type="text" name="name" class="form-control" required="required" />
+      <span>Email</span>
+    </div>
+
+    <button (click)='onSubmit();' class="btn btn-danger btn-block">Enviar</button>
+  </div>
 </div>
