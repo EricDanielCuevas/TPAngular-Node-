@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 <app-carrousel></app-carrousel>
-<p>Main View Works!</p>
+<app-carrousel-cards></app-carrousel-cards>
 
-<div [formGroup]='formSignup'>
+<!-- <div [formGroup]='formSignup'>
         <p>Email</p>
         <input
               id="email"
@@ -23,27 +23,15 @@
       />
 
       </div>
-<button (click)='signup();'  >Signup</button>
-
-<div *ngIf="username; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock><p>Bienvenido {{username}}</p></ng-template>
-<ng-template #elseBlock><p>Nos gustaria saludarlo, cual es su nombre?</p></ng-template>
-
-<div [formGroup]='formGroup'>
-  <input
-                id="username"
-                formControlName="username"
-
-        />
+<button (click)='signup();'  >Signup</button> -->
+<div class="col text-center">
+        <button (click)='onClick();' class="p-3 mb-2 bg-success text-white">Registrese a nuestro newsletter</button>
 </div>
-<button (click)='onSubmit();'  >Submit</button>
+<!-- /*<p></p>
+<a routerLink="/view" routerLinkActive="active">Registrarse</a>
+<p></p>*/ -->
 
-<p></p>
-<a routerLink="/view" routerLinkActive="active">ViewDemo Component</a>
-<p></p>
-<button (click)='onClick();'  >ViewDemo Component Redirect</button>
-<p></p>
-<a routerLink="/iterate" routerLinkActive="active">Iterate Component</a>
+<!-- <a routerLink="/iterate" routerLinkActive="active">Iterate Component</a> -->
 
 <router-outlet></router-outlet>
 
