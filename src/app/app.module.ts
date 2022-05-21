@@ -10,6 +10,7 @@ import { IterateComponentComponent } from './iterate-component/iterate-component
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { CarrouselComponent } from './componentes/carrousel/carrousel.component';
+import { CarrouselCardsComponent } from './componentes/carrousel-cards/carrousel-cards.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CarrouselComponent } from './componentes/carrousel/carrousel.component'
     IterateComponentComponent,
     NavbarComponent,
     FooterComponent,
-    CarrouselComponent
+    CarrouselComponent,
+    CarrouselCardsComponent
   ],
   imports: [
     BrowserModule,
