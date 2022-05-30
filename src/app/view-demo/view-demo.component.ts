@@ -35,7 +35,7 @@ export class ViewDemoComponent implements OnInit {
 
   onClick() {
     console.log('ejecutando redirect en view demo');
-    this.router.navigate(['/'])
+    this.router.navigate(['/view'])
   }
 
   onSubmit() {
