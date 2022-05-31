@@ -20,4 +20,9 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/buscar-golosina'])
     }
 
+  buscarGolosinas() {
+    let golosina = (<HTMLInputElement>document.getElementById("txtGolosinas")).value;
+    this.router.navigate(['/buscar-golosina', { golosina }]);
+  }
+
 }
