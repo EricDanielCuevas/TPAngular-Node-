@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( protected router:Router) { }
+  constructor(protected router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onClick(){
-    console.log('ejecutando redirect');
-    this.router.navigate(['/buscar-golosina'])
+  buscarGolosinas() {
+    let golosina = (<HTMLInputElement>document.getElementById("txtGolosinas")).value;
+    this.router.navigate(['/buscar-golosina', { golosina }]);
   }
 
 }
