@@ -16,6 +16,8 @@ import { BuscarGolosinaComponent } from './buscar-golosina/buscar-golosina.compo
 import { RouterModule, Routes } from '@angular/router';
 
 import { ContactoComponent } from './contacto/contacto.component';
+import { CandyComponent } from './candy/candy.component';
+import { PromosComponent } from './promos/promos.component';
 
 
 
@@ -26,11 +28,9 @@ const appRoutes:Routes=[
   {path:'buscar-golosina',component: BuscarGolosinaComponent},
   {path: 'view', component: ViewDemoComponent},
   {path: 'iterate', component: IterateComponentComponent},
-
   {path: 'contacto', component: ContactoComponent},
-
-  {path: 'contacto', component: ContactoComponent}
-
+  {path: 'candy', component: CandyComponent},
+    {path: 'promos', component: PromosComponent}
 ];
 
 @NgModule({
@@ -47,10 +47,8 @@ const appRoutes:Routes=[
     LoginComponent,
     BuscarGolosinaComponent,
     ContactoComponent,
-
-    BuscarGolosinaComponent,
-    ContactoComponent
-
+    CandyComponent,
+    PromosComponent
   ],
   imports: [
     BrowserModule,
