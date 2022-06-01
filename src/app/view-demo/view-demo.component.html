@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div *ngIf="email; then thenBlock"></div>
 <ng-template #thenBlock>
   <p class="text-success">Newsletter enviado con exito a : {{email}}</p>
@@ -20,3 +21,4 @@
     <button (click)='onClick();' class="btn btn-link">Mostrar menos</button>
   </div>
 </div>
+<app-footer></app-footer>

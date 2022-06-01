@@ -14,10 +14,10 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { LoginComponent } from './login/login.component';
 import { BuscarGolosinaComponent } from './buscar-golosina/buscar-golosina.component';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< HEAD
-=======
+
 import { ContactoComponent } from './contacto/contacto.component';
->>>>>>> e139e84b43cd87375283d81833159f664c56bab4
+
+
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent },
@@ -26,10 +26,11 @@ const appRoutes:Routes=[
   {path:'buscar-golosina',component: BuscarGolosinaComponent},
   {path: 'view', component: ViewDemoComponent},
   {path: 'iterate', component: IterateComponentComponent},
-<<<<<<< HEAD
-=======
+
+  {path: 'contacto', component: ContactoComponent},
+
   {path: 'contacto', component: ContactoComponent}
->>>>>>> e139e84b43cd87375283d81833159f664c56bab4
+
 ];
 
 @NgModule({
@@ -44,12 +45,12 @@ const appRoutes:Routes=[
     HomeComponent,
     CarritoComponent,
     LoginComponent,
-<<<<<<< HEAD
-    BuscarGolosinaComponent
-=======
+    BuscarGolosinaComponent,
+    ContactoComponent,
+
     BuscarGolosinaComponent,
     ContactoComponent
->>>>>>> e139e84b43cd87375283d81833159f664c56bab4
+
   ],
   imports: [
     BrowserModule,
