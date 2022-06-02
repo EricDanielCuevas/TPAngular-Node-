@@ -19,6 +19,7 @@ import { CarrouselCards2Component } from './componentes/carrousel-cards2/carrous
 import { CarrouselCards3Component } from './componentes/carrousel-cards3/carrousel-cards3.component';
 import { PromosComponent } from './promos/promos.component';
 import { CandyComponent } from './candy/candy.component';
+import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent },
@@ -30,6 +31,7 @@ const appRoutes:Routes=[
   {path: 'contacto', component: ContactoComponent},
   {path: 'promos', component: PromosComponent},
   {path: 'candy', component: CandyComponent},
+  {path: 'crearcuenta', component: CrearcuentaComponent}
 ];
 
 @NgModule({
@@ -49,7 +51,8 @@ const appRoutes:Routes=[
     CarrouselCards2Component,
     CarrouselCards3Component,
     PromosComponent,
-    CandyComponent
+    CandyComponent,
+    CrearcuentaComponent
   ],
   imports: [
     BrowserModule,
