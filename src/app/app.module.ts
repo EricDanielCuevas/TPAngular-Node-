@@ -15,6 +15,10 @@ import { LoginComponent } from './login/login.component';
 import { BuscarGolosinaComponent } from './buscar-golosina/buscar-golosina.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactoComponent } from './contacto/contacto.component';
+import { CarrouselCards2Component } from './componentes/carrousel-cards2/carrousel-cards2.component';
+import { CarrouselCards3Component } from './componentes/carrousel-cards3/carrousel-cards3.component';
+import { PromosComponent } from './promos/promos.component';
+import { CandyComponent } from './candy/candy.component';
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent },
@@ -23,7 +27,9 @@ const appRoutes:Routes=[
   {path:'buscar-golosina',component: BuscarGolosinaComponent},
   {path: 'view', component: ViewDemoComponent},
   {path: 'iterate', component: IterateComponentComponent},
-  {path: 'contacto', component: ContactoComponent}
+  {path: 'contacto', component: ContactoComponent},
+  {path: 'promos', component: PromosComponent},
+  {path: 'candy', component: CandyComponent},
 ];
 
 @NgModule({
@@ -39,7 +45,11 @@ const appRoutes:Routes=[
     CarritoComponent,
     LoginComponent,
     BuscarGolosinaComponent,
-    ContactoComponent
+    ContactoComponent,
+    CarrouselCards2Component,
+    CarrouselCards3Component,
+    PromosComponent,
+    CandyComponent
   ],
   imports: [
     BrowserModule,
