@@ -1,11 +1,4 @@
-<!-- <p>view-demo works!</p> -->
-<!-- <p></p>
-<a routerLink="/" routerLinkActive="active">Return to main Component</a>
-<p></p> -->
-
-
-
-
+<app-navbar></app-navbar>
 <div *ngIf="email; then thenBlock"></div>
 <ng-template #thenBlock>
   <p class="text-success">Newsletter enviado con exito a : {{email}}</p>
@@ -25,6 +18,7 @@
     </div>
 
     <button (click)='onSubmit();' class="btn btn-danger btn-block">Enviar</button>
-    <button (click)='onClick();' class="btn btn-link">Mostrar menos</button>
+    <button (click)='onClick();' class="btn btn-link">Volver al Home</button>
   </div>
 </div>
+<app-footer></app-footer>

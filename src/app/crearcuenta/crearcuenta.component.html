@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+
+<section class="position-relative py-3 py-xl-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>¡Bienvenido!</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-8 col-md-6 col-xl-4">
+                <div class="card mb-5 containerLogin">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4">
+                            <img src="./assets/logo-goloteca.png" alt="" width="150" height="150">
+                        </div>
+                        <form class="text-center" method="post">
+                            <div class="mb-3">
+                                <input type="email" class="form-control" name="email" placeholder="E-mail" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                            </div>
+                            <div class="mb-4">
+                                <input type="password" class="form-control" name="password" placeholder="Repita contraseña" required>
+                            </div>
+                            <div class="mb-2">
+                                <button class="btn btn-primary d-block w-100" type="submit">Registrar</button>
+                            </div>
+                            <p>¿Ya tiene cuenta? <a href="/login" class="text-muted">Ingrese acá</a></p>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<app-footer></app-footer>
