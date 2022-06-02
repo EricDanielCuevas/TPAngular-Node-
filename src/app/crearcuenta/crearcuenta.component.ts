@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crearcuenta',
@@ -7,15 +6,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./crearcuenta.component.css']
 })
 export class CrearcuentaComponent implements OnInit {
-  url: String;
-  
-  constructor(protected router: Router) { }
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick() {
-    this.router.navigate(['/crearcuenta'])
-  }
+
 
 }
