@@ -31,12 +31,13 @@ export class BuscarGolosinaComponent implements OnInit {
 
       { nombre: 'Chupetines', marca: 'Lipo', titulo: 'sabor a naranja', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' },
 
-      { nombre: 'Chocolate', marca: 'Milka', titulo: ' chocolate negro', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
+      { nombre: 'Chocolate', marca: 'Milka', titulo: 'chocolate negro', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
 
       { nombre: 'Barritas', marca: 'Arcor', titulo: 'avena con chocolate', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' }
     ];
+
     if (valorBusqueda != "") {
-      this.productos = productosEnLaBaseDeDatos.filter(producto => producto.marca == valorBusqueda);
+      this.productos = productosEnLaBaseDeDatos.filter(producto => producto.marca.toUpperCase() == valorBusqueda.toUpperCase());
     }
     else {
       this.productos = productosEnLaBaseDeDatos;
