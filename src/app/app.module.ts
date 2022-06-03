@@ -14,24 +14,30 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { LoginComponent } from './login/login.component';
 import { BuscarGolosinaComponent } from './buscar-golosina/buscar-golosina.component';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ContactoComponent } from './contacto/contacto.component';
 import { CarrouselCards2Component } from './componentes/carrousel-cards2/carrousel-cards2.component';
 import { CarrouselCards3Component } from './componentes/carrousel-cards3/carrousel-cards3.component';
 import { PromosComponent } from './promos/promos.component';
 import { CandyComponent } from './candy/candy.component';
 import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
+import { CarrouselCardsPromosComponent } from './componentes/carrousel-cards-promos/carrousel-cards-promos.component';
+import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 
-const appRoutes:Routes=[
-  {path:'',component:HomeComponent },
-  {path:'login',component:LoginComponent },
-  {path:'carrito',component: CarritoComponent},
-  {path:'buscar-golosina',component: BuscarGolosinaComponent},
-  {path: 'view', component: ViewDemoComponent},
-  {path: 'iterate', component: IterateComponentComponent},
-  {path: 'contacto', component: ContactoComponent},
-  {path: 'promos', component: PromosComponent},
-  {path: 'candy', component: CandyComponent},
-  {path: 'crearcuenta', component: CrearcuentaComponent}
+
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'buscar-golosina', component: BuscarGolosinaComponent },
+  { path: 'view', component: ViewDemoComponent },
+  { path: 'iterate', component: IterateComponentComponent },
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'candy', component: CandyComponent },
+  { path: 'promos', component: PromosComponent },
+  {path: 'crearcuenta', component: CrearcuentaComponent},
+  { path: 'detalle/:id', component: DetalleProductoComponent }
 ];
 
 @NgModule({
@@ -52,7 +58,9 @@ const appRoutes:Routes=[
     CarrouselCards3Component,
     PromosComponent,
     CandyComponent,
-    CrearcuentaComponent
+    CrearcuentaComponent,
+    CarrouselCardsPromosComponent,
+    DetalleProductoComponent
   ],
   imports: [
     BrowserModule,

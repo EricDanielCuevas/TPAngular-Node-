@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="pd-wrap">
+    <div class="container">
+        <div class="heading-section">
+            <h2>{{producto.titulo}}</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <td>
+                        <img src='{{producto.imagen}}' style="object-fit: contain;width: 60%;height: auto;" />
+                    </td>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-dtl">
+                    <p>{{producto.descripcion}}</p>
+                    <div class="product-info">
+                        <div class="product-price-discount">
+
+                            <span>
+                                <span class="line-through">
+                                    ${{producto.precio}}
+                                </span>
+                                ${{producto.precioConDescuento}}
+                                <span class="percentage">
+                                    {{producto.porcentajeDescuento}}% OFF
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="product-count">
+                        <label for="size">Cantidad</label>
+                        <form action="#" class="display-flex">
+                            <div class="qtyminus" (click)="quitar()">-</div>
+                            <input type="text" name="quantity" [value]="cantidad" class="qty">
+                            <div class="qtyplus" (click)="agregar()">+</div>
+                        </form>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

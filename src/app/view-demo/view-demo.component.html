@@ -3,7 +3,9 @@
 <ng-template #thenBlock>
   <p class="text-success">Newsletter enviado con exito a : {{email}}</p>
 </ng-template>
-
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-sm-12">
 <div class="col text-center">
   <div [formGroup]='formGroup' class="card">
     <h3> Newsletter</h3>
@@ -20,5 +22,8 @@
     <button (click)='onSubmit();' class="btn btn-danger btn-block">Enviar</button>
     <button (click)='onClick();' class="btn btn-link">Volver al Home</button>
   </div>
+</div>
+</div>
+</div>
 </div>
 <app-footer></app-footer>
