@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-    constructor( protected router:Router) { 
-      
-    }
+  constructor(protected router: Router) { }
 
     ngOnInit(): void {
     }

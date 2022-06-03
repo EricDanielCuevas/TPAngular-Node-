@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BuscarGolosinaComponent implements OnInit {
 
   productos = [];
-
+  @Input() producto: any;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -25,15 +25,15 @@ export class BuscarGolosinaComponent implements OnInit {
 
     //Aca deberiamos obtener los productos que tenemos en la base de datos
     let productosEnLaBaseDeDatos = [
-      { nombre: 'Chocolate', marca: 'Arcor', titulo: 'chocolate blanco', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' },
+      { id: 1, nombre: 'Chocolate', marca: 'Arcor', titulo: 'chocolate blanco', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' },
 
-      { nombre: 'Caramelos', marca: 'Arcor', titulo: 'menta cristal', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
+      { id: 2, nombre: 'Caramelos', marca: 'Arcor', titulo: 'menta cristal', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
 
-      { nombre: 'Chupetines', marca: 'Lipo', titulo: 'sabor a naranja', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' },
+      { id: 3, nombre: 'Chupetines', marca: 'Lipo', titulo: 'sabor a naranja', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' },
 
-      { nombre: 'Chocolate', marca: 'Milka', titulo: 'chocolate negro', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
+      { id: 4, nombre: 'Chocolate', marca: 'Milka', titulo: ' chocolate negro', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
 
-      { nombre: 'Barritas', marca: 'Arcor', titulo: 'avena con chocolate', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' }
+      { id: 5, nombre: 'Barritas', marca: 'Arcor', titulo: 'avena con chocolate', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' }
     ];
 
     if (valorBusqueda != "") {
@@ -43,5 +43,4 @@ export class BuscarGolosinaComponent implements OnInit {
       this.productos = productosEnLaBaseDeDatos;
     }
   }
-
 }
