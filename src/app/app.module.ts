@@ -20,6 +20,7 @@ import { CarrouselCards3Component } from './componentes/carrousel-cards3/carrous
 import { PromosComponent } from './promos/promos.component';
 import { CandyComponent } from './candy/candy.component';
 import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
+import { CarrouselCardsPromosComponent } from './componentes/carrousel-cards-promos/carrousel-cards-promos.component';
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent },
@@ -52,7 +53,8 @@ const appRoutes:Routes=[
     CarrouselCards3Component,
     PromosComponent,
     CandyComponent,
-    CrearcuentaComponent
+    CrearcuentaComponent,
+    CarrouselCardsPromosComponent
   ],
   imports: [
     BrowserModule,
