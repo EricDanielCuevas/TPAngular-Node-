@@ -18,19 +18,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactoComponent } from './contacto/contacto.component';
 import { CandyComponent } from './candy/candy.component';
 import { PromosComponent } from './promos/promos.component';
+import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 
 
 
-const appRoutes:Routes=[
-  {path:'',component:HomeComponent },
-  {path:'login',component:LoginComponent },
-  {path:'carrito',component: CarritoComponent},
-  {path:'buscar-golosina',component: BuscarGolosinaComponent},
-  {path: 'view', component: ViewDemoComponent},
-  {path: 'iterate', component: IterateComponentComponent},
-  {path: 'contacto', component: ContactoComponent},
-  {path: 'candy', component: CandyComponent},
-    {path: 'promos', component: PromosComponent}
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'buscar-golosina', component: BuscarGolosinaComponent },
+  { path: 'view', component: ViewDemoComponent },
+  { path: 'iterate', component: IterateComponentComponent },
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'candy', component: CandyComponent },
+  { path: 'promos', component: PromosComponent },
+  { path: 'detalle/:id', component: DetalleProductoComponent }
 ];
 
 @NgModule({
@@ -48,7 +50,8 @@ const appRoutes:Routes=[
     BuscarGolosinaComponent,
     ContactoComponent,
     CandyComponent,
-    PromosComponent
+    PromosComponent,
+    DetalleProductoComponent
   ],
   imports: [
     BrowserModule,
