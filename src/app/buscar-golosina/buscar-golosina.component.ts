@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BuscarGolosinaComponent implements OnInit {
 
   productos = [];
-  @Input() producto: any;
+  
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
