@@ -1,0 +1,28 @@
+.display-flex {
+	display: flex;
+}
+.product-count {
+	margin-top: 15px;
+}
+
+.product-count .qtyminus,
+.product-count .qtyplus {
+	width: 34px;
+    height: 34px;
+    background: #212529;
+    text-align: center;
+    font-size: 19px;
+    line-height: 36px;
+    color: #fff;
+    cursor: pointer;
+}
+.product-count .qtyminus {
+	border-radius: 3px 0 0 3px;
+}
+.product-count .qtyplus {
+	border-radius: 0 3px 3px 0;
+}
+.product-count .qty {
+	width: 60px;
+	text-align: center;
+}

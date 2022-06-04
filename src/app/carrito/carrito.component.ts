@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
+  cantidad: number = 1;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  agregar() {
+    if (this.cantidad >= 1) {
+      this.cantidad++;
+    }
+  }
+
+  quitar() {
+    if (this.cantidad > 1) {
+      this.cantidad--;
+    }
   }
 
 }
