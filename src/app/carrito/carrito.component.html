@@ -15,7 +15,15 @@
         <td>Mantecol</td>
         <td>Postre mani 200gr</td>
         <td>$150</td>
-        <td>1</td>
+        <td>
+          <div class="product-count">
+            <form action="#" class="display-flex">
+                <div class="qtyminus" (click)="quitar()">-</div>
+                <input type="text" name="quantity" [value]="cantidad" class="qty">
+                <div class="qtyplus" (click)="agregar()">+</div>
+            </form>       
+          </div>
+        </td>
       </tr>
       <tr>
         <th scope="row">2</th>
