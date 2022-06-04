@@ -8,3 +8,12 @@
     transform: scale(1.1);
 }
 
+
+h3 {
+  text-align: center;
+
+}
+
+img{
+  max-width: 100%;
+}
