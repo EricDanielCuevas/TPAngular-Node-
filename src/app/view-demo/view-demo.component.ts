@@ -22,7 +22,6 @@ export class ViewDemoComponent implements OnInit {
     private formBuilder: FormBuilder,
     protected httpClient: HttpClient) {
     console.log('viewdemo constructor');
-
   }
 
   ngOnInit(): void {
@@ -33,15 +32,16 @@ export class ViewDemoComponent implements OnInit {
     });
   }
 
-  onClick() {
-    console.log('ejecutando redirect en view demo');
-    this.router.navigate(['/'])
-  }
 
   onSubmit() {
     console.log('ejecutando submit');
     console.log('email:' + this.formGroup.get('email').value);
     this.email = this.formGroup.get('email').value;
+  }
+
+  onClick() {
+    console.log('ejecutando redirect en view demo');
+    this.router.navigate(['/'])
   }
 
   changeKitty() {

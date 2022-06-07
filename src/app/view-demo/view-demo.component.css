@@ -1,4 +1,9 @@
-body{
+.containerLogin {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
+    border-radius: 8px;
+}
+
+/* body{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -6,12 +11,12 @@ body{
     background: linear-gradient(45deg,#e43a15,#e65245)}
 
 .card{
-    width: 400px;
-    padding: 80px 50px;
-    position: relative;
+    width: 80%;
     border-radius: 20px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-    margin-left: 50em;
+    padding: 80px 50px;
+    position: relative;
+    margin-left: 50%;
     margin-bottom: 90px;
 }
 .card h3{
@@ -37,4 +42,4 @@ body{
     padding-left: 10px;
     display: inline-block;
     transition: 0.5s}
-.inputbox input:focus ~ span{transform: translateX(-10px) translateY(-32px);font-size: 12px}.inputbox input:valid ~ span{transform: translateX(-10px) translateY(-32px);font-size: 12px}
+.inputbox input:focus ~ span{transform: translateX(-10px) translateY(-32px);font-size: 12px}.inputbox input:valid ~ span{transform: translateX(-10px) translateY(-32px);font-size: 12px} */
