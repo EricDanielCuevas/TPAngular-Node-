@@ -1,29 +1,41 @@
 <app-navbar></app-navbar>
+<section class="position-relative py-3 py-xl-5">
+  <div class="container">
+      <div class="row mb-4">
+          <div class="col-md-8 col-xl-6 text-center mx-auto">
+              <h2>¡Newsletter!</h2>
+          </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+          <div class="col-sm-8 col-md-6 col-xl-4">
+              <div class="card mb-5 containerLogin">
+                  <div class="card-body d-flex flex-column align-items-center">
+                      <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4">
+                          <img src="./assets/logo-goloteca.png" alt="" width="150" height="150">
+                      </div>
+                      <form [formGroup]="formGroup" class="text-center" method="get"> 
+                          <div class="mb-4">
+                              <input type="text" class="form-control" formControlName="name" placeholder="Nombre" required>
+                          </div>
+                          <div class="mb-3">
+                            <input type="email" class="form-control" formControlName="email" placeholder="E-mail" required>
+                        </div>
+                          <div class="mb-2">
+                            <button (click)="onSubmit()" type="submit" class="btn btn-success">Suscribirme</button>
+                          </div>
+                          <div class="mb-3">
+                            <button (click)="onClick()" type="submit" class="btn btn-danger">Cancelar</button>
+                          </div>
+                          <a href="/contacto" class="text-muted">¿Necesita ayuda?</a>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 <div *ngIf="email; then thenBlock"></div>
 <ng-template #thenBlock>
-  <p class="text-success">Newsletter enviado con exito a : {{email}}</p>
+  <p class="text-success">Newsletter enviado con exito a : {{ email }}</p>
 </ng-template>
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-sm-12">
-<div class="col text-center">
-  <div [formGroup]='formGroup' class="card">
-    <h3> Newsletter</h3>
-    <div class="inputbox">
-      <input id="name" formControlName="name" type="text" name="name" class="form-control" required="required" />
-      <span>Nombre completo</span>
-    </div>
-
-    <div class="inputbox">
-      <input id="email" formControlName="email" type="text" name="name" class="form-control" required="required" />
-      <span>Email</span>
-    </div>
-
-    <button (click)='onSubmit();' class="btn btn-danger btn-block">Enviar</button>
-    <button (click)='onClick();' class="btn btn-link">Volver al Home</button>
-  </div>
-</div>
-</div>
-</div>
-</div>
 <app-footer></app-footer>

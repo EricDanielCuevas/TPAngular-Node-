@@ -30,36 +30,82 @@
         <td>Sugus</td>
         <td>Caramelos surtidos 200gr</td>
         <td>$250</td>
-        <td>2</td>
+        <td>
+          <div class="product-count">
+            <form action="#" class="display-flex">
+                <div class="qtyminus" (click)="quitar()">-</div>
+                <input type="text" name="quantity" [value]="cantidad" class="qty">
+                <div class="qtyplus" (click)="agregar()">+</div>
+            </form>       
+          </div>
+        </td>
+        
       </tr>
       <tr>
         <th scope="row">3</th>
         <td>Lipo</td>
         <td>Pastillas ácidas 200gr</td>
         <td>$100</td>
-        <td>3</td>
+        <td>
+          <div class="product-count">
+            <form action="#" class="display-flex">
+                <div class="qtyminus" (click)="quitar()">-</div>
+                <input type="text" name="quantity" [value]="cantidad" class="qty">
+                <div class="qtyplus" (click)="agregar()">+</div>
+            </form>       
+          </div>
+        </td>
       </tr>
       <tr>
         <th scope="row">4</th>
         <td>Pop´s</td>
         <td>Chupetines surtidos 200gr</td>
         <td>$110</td>
-        <td>1</td>
+        <td>
+          <div class="product-count">
+            <form action="#" class="display-flex">
+                <div class="qtyminus" (click)="quitar()">-</div>
+                <input type="text" name="quantity" [value]="cantidad" class="qty">
+                <div class="qtyplus" (click)="agregar()">+</div>
+            </form>       
+          </div>
+        </td>
       </tr>
       <tr>
         <th scope="row">5</th>
         <td>Arcor</td>
         <td>Turrón 25g</td>
         <td>$30</td>
-        <td>10</td>
+        <td>
+          <div class="product-count">
+            <form action="#" class="display-flex">
+                <div class="qtyminus" (click)="quitar()">-</div>
+                <input type="text" name="quantity" [value]="cantidad" class="qty">
+                <div class="qtyplus" (click)="agregar()">+</div>
+            </form>       
+          </div>
+        </td>
       </tr>
       <tr>
         <th scope="row">6</th>
         <td>M&M</td>
         <td>Mani con chocolate 95g</td>
         <td>$180</td>
-        <td>7</td>
+        <td>
+          <div class="product-count">
+            <form action="#" class="display-flex">
+                <div class="qtyminus" (click)="quitar()">-</div>
+                <input type="text" name="quantity" [value]="cantidad" class="qty">
+                <div class="qtyplus" (click)="agregar()">+</div>
+            </form>       
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button (click)=onClick() class="btn btn-primary" type="button" style="background-color: red;">Volver</button>
+    <button class="btn btn-primary" type="button" style="background-color: green;">Confirmar Compra</button>
+  </div>
+  <p></p>
 <app-footer></app-footer>
