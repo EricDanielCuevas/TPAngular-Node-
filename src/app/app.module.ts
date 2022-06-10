@@ -23,6 +23,7 @@ import { CandyComponent } from './candy/candy.component';
 import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
 import { CarrouselCardsPromosComponent } from './componentes/carrousel-cards-promos/carrousel-cards-promos.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

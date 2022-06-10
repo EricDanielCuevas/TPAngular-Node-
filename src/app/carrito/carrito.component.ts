@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { productos } from '../productos';
 
 @Component({
   selector: 'app-carrito',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class CarritoComponent implements OnInit {
 
   cantidad: number = 1;
+  productos=productos; 
 
   constructor(protected router: Router) { }
 

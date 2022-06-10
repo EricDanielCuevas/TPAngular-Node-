@@ -1,14 +1,19 @@
 <app-navbar></app-navbar>
-<table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Marca</th>
-        <th scope="col">Descripcion</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Cantidad</th>
-      </tr>
-    </thead>
+<div>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Marca</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+        </tr>
+      </thead>
+  </table> 
+</div>  
+ <div>
+  <table class="table table-hover">  
     <tbody>
       <tr>
         <th scope="row">1</th>
@@ -25,7 +30,18 @@
           </div>
         </td>
       </tr>
-      <tr>
+    </tbody>
+  </table>
+</div>   
+    <div class="container">
+      <div class="mb-3">
+        <button (click)=onClick() class="btn btn-success" type="button" style="background-color: red;">Volver</button>
+        <button class="btn btn-danger" type="button" style="background-color: green;">Confirmar Compra</button>
+      </div>
+    </div>    
+  <p></p>
+<app-footer></app-footer>
+      <!-- */<tr>
         <th scope="row">2</th>
         <td>Sugus</td>
         <td>Caramelos surtidos 200gr</td>
@@ -100,12 +116,5 @@
             </form>       
           </div>
         </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <button (click)=onClick() class="btn btn-primary" type="button" style="background-color: red;">Volver</button>
-    <button class="btn btn-primary" type="button" style="background-color: green;">Confirmar Compra</button>
-  </div>
-  <p></p>
-<app-footer></app-footer>
+      </tr>/* -->
+    
