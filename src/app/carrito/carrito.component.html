@@ -9,6 +9,7 @@
           <th scope="col">Descripcion</th>
           <th scope="col">Precio</th>
           <th scope="col">Cantidad</th>
+          <th scope="col">Borrar</th>
         </tr>
       </thead>
   </table> 
@@ -30,6 +31,9 @@
                 <div class="qtyplus" (click)="agregar()">+</div>
             </form>       
           </div>
+        </td>
+        <td>
+          <span><a routerLink='/'><i class="material-icons">delete</i></a></span>
         </td>
       </tr>
     </tbody>
