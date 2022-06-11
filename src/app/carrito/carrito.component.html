@@ -1,9 +1,10 @@
 <app-navbar></app-navbar>
-<div>
+<div class="container">
   <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col"></th>
+          
+          <th scope="col">cod.</th>
           <th scope="col">Marca</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Precio</th>
@@ -12,14 +13,15 @@
       </thead>
   </table> 
 </div>  
- <div>
+ <div class="container" *ngFor="let producto of productos">
   <table class="table table-hover">  
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Mantecol</td>
-        <td>Postre mani 200gr</td>
-        <td>$150</td>
+        <th scope="row">{{producto.id}}</th>
+        <td style="width:150px"><img src='{{producto.imagen}}' style="outline: none; width: 90px;" /></td>
+        <td>{{producto.marca}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td>{{producto.precio}}</td>
         <td>
           <div class="product-count">
             <form action="#" class="display-flex">
@@ -41,80 +43,3 @@
     </div>    
   <p></p>
 <app-footer></app-footer>
-      <!-- */<tr>
-        <th scope="row">2</th>
-        <td>Sugus</td>
-        <td>Caramelos surtidos 200gr</td>
-        <td>$250</td>
-        <td>
-          <div class="product-count">
-            <form action="#" class="display-flex">
-                <div class="qtyminus" (click)="quitar()">-</div>
-                <input type="text" name="quantity" [value]="cantidad" class="qty">
-                <div class="qtyplus" (click)="agregar()">+</div>
-            </form>       
-          </div>
-        </td>
-        
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Lipo</td>
-        <td>Pastillas ácidas 200gr</td>
-        <td>$100</td>
-        <td>
-          <div class="product-count">
-            <form action="#" class="display-flex">
-                <div class="qtyminus" (click)="quitar()">-</div>
-                <input type="text" name="quantity" [value]="cantidad" class="qty">
-                <div class="qtyplus" (click)="agregar()">+</div>
-            </form>       
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Pop´s</td>
-        <td>Chupetines surtidos 200gr</td>
-        <td>$110</td>
-        <td>
-          <div class="product-count">
-            <form action="#" class="display-flex">
-                <div class="qtyminus" (click)="quitar()">-</div>
-                <input type="text" name="quantity" [value]="cantidad" class="qty">
-                <div class="qtyplus" (click)="agregar()">+</div>
-            </form>       
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Arcor</td>
-        <td>Turrón 25g</td>
-        <td>$30</td>
-        <td>
-          <div class="product-count">
-            <form action="#" class="display-flex">
-                <div class="qtyminus" (click)="quitar()">-</div>
-                <input type="text" name="quantity" [value]="cantidad" class="qty">
-                <div class="qtyplus" (click)="agregar()">+</div>
-            </form>       
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td>M&M</td>
-        <td>Mani con chocolate 95g</td>
-        <td>$180</td>
-        <td>
-          <div class="product-count">
-            <form action="#" class="display-flex">
-                <div class="qtyminus" (click)="quitar()">-</div>
-                <input type="text" name="quantity" [value]="cantidad" class="qty">
-                <div class="qtyplus" (click)="agregar()">+</div>
-            </form>       
-          </div>
-        </td>
-      </tr>/* -->
-    
