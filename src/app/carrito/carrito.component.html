@@ -14,13 +14,13 @@
           <th scope="col">Borrar</th>
         </tr>
       </thead>
-      <tbody *ngFor="let producto of productos">
+      <tbody *ngFor="let item of items">
         <tr>
-          <th scope="row">{{producto.id}}</th>
-          <td><img src='{{producto.imagen}}' style="outline: none; width: 90px;" /></td>
-          <td>{{producto.marca}}</td>
-          <td>{{producto.descripcion}}</td>
-          <td>{{producto.precio | currency}}</td>
+          <th scope="row">{{item.id}}</th>
+          <td><img src='{{item.imagen}}' style="outline: none; width: 90px;" /></td>
+          <td>{{item.marca}}</td>
+          <td>{{item.descripcion}}</td>
+          <td>{{item.precio | currency}}</td>
           <td>
             <div class="product-count">
               <form action="#" class="display-flex">

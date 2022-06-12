@@ -14,7 +14,6 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { LoginComponent } from './login/login.component';
 import { BuscarGolosinaComponent } from './buscar-golosina/buscar-golosina.component';
 import { RouterModule, Routes } from '@angular/router';
-
 import { ContactoComponent } from './contacto/contacto.component';
 import { CarrouselCards2Component } from './componentes/carrousel-cards2/carrousel-cards2.component';
 import { CarrouselCards3Component } from './componentes/carrousel-cards3/carrousel-cards3.component';

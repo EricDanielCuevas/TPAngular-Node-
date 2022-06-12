@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarritoService } from '../carrito.service';
+import { productos } from '../productos';
+
 
 @Component({
   selector: 'app-buscar-golosina',
@@ -8,9 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BuscarGolosinaComponent implements OnInit {
 
-  productos = [];
+  //productos=[];
+  productos = productos;
   
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -36,15 +40,16 @@ export class BuscarGolosinaComponent implements OnInit {
       { id: 5, nombre: 'Barritas', marca: 'Arcor', titulo: 'avena con chocolate', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' }
     ];
 
-    if (valorBusqueda != "") {
-      this.productos = productosEnLaBaseDeDatos.filter(producto => producto.marca.toUpperCase() == valorBusqueda.toUpperCase());
-    }
-    else {
-      this.productos = productosEnLaBaseDeDatos;
-    }
+    // if (valorBusqueda != "") {
+    //   this.productos = productosEnLaBaseDeDatos.filter(producto => producto.marca.toUpperCase() == valorBusqueda.toUpperCase());
+    // }
+    // else {
+    //   this.productos = productosEnLaBaseDeDatos;
+    // }
+  }
+  adicionarCarrito(producto){
+    this.carrito.adicionarCarrito(producto)
+    window.alert("se ha seleccionado el producto : "+producto.id);  
   }
 
-  adicionarCarrito(id){
-    window.alert("se ha seleccionado el producto : "+id); 
-  }
 }

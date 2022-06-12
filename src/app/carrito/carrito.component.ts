@@ -12,12 +12,13 @@ export class CarritoComponent implements OnInit {
 
   cantidad: number = 1;
   productos=productos;
-  carrito=new CarritoService();
-  
+  items=[];  
 
-  constructor(protected router: Router) { }
+  constructor(protected router: Router,private carrito:CarritoService) { }
 
   ngOnInit(): void {
+    this.items=this.carrito.listarCarrito();
+    console.log(this.items);
   }
 
   onClick(){
@@ -36,10 +37,10 @@ export class CarritoComponent implements OnInit {
     }
   }
 
-  adicionarCarrito(producto){
-    this.carrito.adicionarCarrito(producto);
-    window.alert("Producto adicionado con el codigo : "+producto.id);
-  }
+  // adicionarCarrito(producto){
+  //   this.carrito.adicionarCarrito(producto);
+  //   window.alert("Producto adicionado con el codigo : "+producto.id);
+  // }
 
   
 
