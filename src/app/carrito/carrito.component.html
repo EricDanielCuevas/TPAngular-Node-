@@ -23,7 +23,7 @@
         <td style="width:150px"><img src='{{producto.imagen}}' style="outline: none; width: 90px;" /></td>
         <td>{{producto.marca}}</td>
         <td>{{producto.descripcion}}</td>
-        <td>{{producto.precio}}</td>
+        <td>{{producto.precio | currency}}</td>
         <td>
           <div class="product-count">
             <form action="#" class="display-flex">

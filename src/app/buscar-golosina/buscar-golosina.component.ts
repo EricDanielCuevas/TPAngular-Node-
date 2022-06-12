@@ -43,4 +43,8 @@ export class BuscarGolosinaComponent implements OnInit {
       this.productos = productosEnLaBaseDeDatos;
     }
   }
+
+  adicionarCarrito(id){
+    window.alert("se ha seleccionado el producto : "+id); 
+  }
 }

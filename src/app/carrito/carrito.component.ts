@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { productos } from '../productos';
+import{CarritoService} from '../carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -10,7 +11,9 @@ import { productos } from '../productos';
 export class CarritoComponent implements OnInit {
 
   cantidad: number = 1;
-  productos=productos; 
+  productos=productos;
+  carrito=new CarritoService();
+  
 
   constructor(protected router: Router) { }
 
@@ -32,5 +35,12 @@ export class CarritoComponent implements OnInit {
       this.cantidad--;
     }
   }
+
+  adicionarCarrito(producto){
+    this.carrito.adicionarCarrito(producto);
+    window.alert("Producto adicionado con el codigo : "+producto.id);
+  }
+
+  
 
 }
