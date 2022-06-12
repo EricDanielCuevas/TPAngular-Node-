@@ -11,8 +11,8 @@ import { productos } from '../productos';
 })
 export class BuscarGolosinaComponent implements OnInit {
 
-  //productos=[];
-  productos = productos;
+  productos=[];
+  producto = productos;
   
   constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
 
@@ -40,12 +40,12 @@ export class BuscarGolosinaComponent implements OnInit {
       { id: 5, nombre: 'Barritas', marca: 'Arcor', titulo: 'avena con chocolate', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' }
     ];
 
-    // if (valorBusqueda != "") {
-    //   this.productos = productosEnLaBaseDeDatos.filter(producto => producto.marca.toUpperCase() == valorBusqueda.toUpperCase());
-    // }
-    // else {
-    //   this.productos = productosEnLaBaseDeDatos;
-    // }
+     if (valorBusqueda != "") {
+       this.productos = this.producto.filter(producto => producto.marca.toUpperCase() == valorBusqueda.toUpperCase());
+     }
+     else {
+       this.productos = this.producto;
+    }
   }
   adicionarCarrito(producto){
     this.carrito.adicionarCarrito(producto)
