@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { productos } from '../productos';
+import{CarritoService} from '../carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -7,28 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
+  productos=productos;
+  items=[];  
 
-  cantidad: number = 1;
-
-  constructor(protected router: Router) { }
+  constructor(protected router: Router,private carrito:CarritoService) { }
 
   ngOnInit(): void {
+    this.items=this.carrito.listarCarrito();
   }
 
   onClick(){
     this.router.navigate(['/'])
   }
-
-  agregar() {
-    if (this.cantidad >= 1) {
-      this.cantidad++;
-    }
-  }
-
-  quitar() {
-    if (this.cantidad > 1) {
-      this.cantidad--;
-    }
-  }
-
 }

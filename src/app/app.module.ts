@@ -14,7 +14,6 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { LoginComponent } from './login/login.component';
 import { BuscarGolosinaComponent } from './buscar-golosina/buscar-golosina.component';
 import { RouterModule, Routes } from '@angular/router';
-
 import { ContactoComponent } from './contacto/contacto.component';
 import { CarrouselCards2Component } from './componentes/carrousel-cards2/carrousel-cards2.component';
 import { CarrouselCards3Component } from './componentes/carrousel-cards3/carrousel-cards3.component';
@@ -23,6 +22,7 @@ import { CandyComponent } from './candy/candy.component';
 import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
 import { CarrouselCardsPromosComponent } from './componentes/carrousel-cards-promos/carrousel-cards-promos.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -67,7 +67,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
