@@ -22,13 +22,8 @@
           <td>{{item.descripcion}}</td>
           <td>{{item.precio | currency}}</td>
           <td>
-            <div class="product-count">
-              <form action="#" class="display-flex">
-                  <div class="qtyminus" (click)="quitar()">-</div>
-                  <input type="text" name="quantity" [value]="cantidad" class="qty">
-                  <div class="qtyplus" (click)="agregar()">+</div>
-              </form>       
-            </div> 
+            {{item.cantidad}}
+            
           </td>
           <td><span><a routerLink='/'><i class="material-icons">delete</i></a></span></td>
         </tr>

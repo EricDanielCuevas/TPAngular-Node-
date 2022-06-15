@@ -9,8 +9,6 @@ import{CarritoService} from '../carrito.service';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-
-  cantidad: number = 1;
   productos=productos;
   items=[];  
 
@@ -18,30 +16,9 @@ export class CarritoComponent implements OnInit {
 
   ngOnInit(): void {
     this.items=this.carrito.listarCarrito();
-    console.log(this.items);
   }
 
   onClick(){
     this.router.navigate(['/'])
   }
-
-  agregar() {
-    if (this.cantidad >= 1) {
-      this.cantidad++;
-    }
-  }
-
-  quitar() {
-    if (this.cantidad > 1) {
-      this.cantidad--;
-    }
-  }
-
-  // adicionarCarrito(producto){
-  //   this.carrito.adicionarCarrito(producto);
-  //   window.alert("Producto adicionado con el codigo : "+producto.id);
-  // }
-
-  
-
 }

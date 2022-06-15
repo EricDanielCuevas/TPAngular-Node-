@@ -6,14 +6,23 @@ import { productos } from './productos';
   providedIn: 'root'
 })
 export class CarritoService {
-
-  productos=productos; 
   items =[];
+  
 
-  constructor() { }
+  constructor() {}
 
   adicionarCarrito(producto){
-    this.items.push(producto);  
+    let encontrado=false;
+    this.items.forEach(elemento => {
+      if(elemento.id==producto.id){
+        encontrado=true;
+        elemento.cantidad+=1;
+      }
+    });
+    if (!encontrado) {
+      this.items.push(producto);     
+    }
+    
   }
 
   limpiarCarrito(){
