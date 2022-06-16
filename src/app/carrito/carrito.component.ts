@@ -21,4 +21,14 @@ export class CarritoComponent implements OnInit {
   onClick(){
     this.router.navigate(['/'])
   }
+
+  eliminar(id){
+    if(confirm('¿Seguro Desea Eliminar?')){
+      const resultado= this.items.findIndex(e=>e.id==id);
+      this.items.splice(resultado);
+      return this.items;
+    }  
+  }
+
+  
 }
