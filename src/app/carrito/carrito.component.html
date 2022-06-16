@@ -21,11 +21,8 @@
           <td>{{item.marca}}</td>
           <td>{{item.descripcion}}</td>
           <td>{{item.precio | currency}}</td>
-          <td>
-            {{item.cantidad}}
-            
-          </td>
-          <td><span><a routerLink='/'><i class="material-icons">delete</i></a></span></td>
+          <td>{{item.cantidad}}</td>
+          <td><span><a (click)="eliminar(item.id)" ><i class="material-icons">delete</i></a></span></td>
         </tr>
       </tbody>
     </table>
