@@ -1,7 +1,7 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarritoService } from 'src/app/carrito.service';
-import { productos } from 'src/app/productos';
+import { productoscandy } from 'src/app/productos';
 
 @Component({
   selector: 'app-candy',
@@ -10,7 +10,7 @@ import { productos } from 'src/app/productos';
 })
 export class CandyComponent implements OnInit {
 
-  producto = productos;
+  producto = productoscandy;
 
   constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
 
@@ -18,7 +18,6 @@ export class CandyComponent implements OnInit {
   }
 
   adicionarCarrito(producto){
-    //productos.push(producto)
     this.carrito.adicionarCarrito(producto)
     window.alert("se ha seleccionado el producto : "+producto.id);  
   }

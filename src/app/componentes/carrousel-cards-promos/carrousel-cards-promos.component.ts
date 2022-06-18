@@ -1,7 +1,7 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarritoService } from 'src/app/carrito.service';
-import { productos } from 'src/app/productos';
+import { productospromo } from 'src/app/productos';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ import { productos } from 'src/app/productos';
   styleUrls: ['./carrousel-cards-promos.component.css']
 })
 export class CarrouselCardsPromosComponent implements OnInit {
-  producto = productos;
+  producto = productospromo;
   
   constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
   
