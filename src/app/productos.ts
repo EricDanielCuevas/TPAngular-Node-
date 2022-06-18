@@ -15,5 +15,12 @@ export const productos=[
 
       { id: 8, nombre: 'combo-facu', marca: 'combo', descripcion: 'Cereal arcor, alfajor jorgito, jugo cepita, 25 caramelos surtidos, tableta beldent, cofler mini', precio: 510.0, cantidad: 1, disponible: true,imagen: './assets/combo-facu.png' },
 
-      { id: 9, nombre: 'combo-ofi', marca: 'combo', descripcion: 'Cereal arcor, alfajor jorgito, jugo cepita, 25 caramelos surtidos, tableta beldent, cofler mini', precio: 510.0, cantidad: 1, disponible: true,imagen: './assets/combo-ofi.png' }
+      { id: 9, nombre: 'combo-ofi', marca: 'combo', descripcion: 'Cereal arcor, alfajor jorgito, jugo cepita, 25 caramelos surtidos, tableta beldent, cofler mini', precio: 510.0, cantidad: 1, disponible: true,imagen: './assets/combo-ofi.png' },
+
+      { id: 10, nombre: 'Casamiento', marca: 'candy', descripcion: 'Caramelos 3 sabores a elección., Gomitas 3 sabores a elección, Chupetines Picodulce., Alfajores Jorgito, Tita & Rhodesia', precio: 39000, cantidad: 1, comen: '60 personas', disponible: true,imagen: './assets/candy-bar-casamiento.jpg' },
+
+      { id: 11, nombre: 'Quince', marca: 'candy', descripcion: 'Caramelos 3 sabores a elección., Gomitas 3 sabores a elección, Chupetines Picodulce., Alfajores Jorgito, Tita & Rhodesia', precio: 32000, cantidad: 1,comen: '50 personas', disponible: true,imagen: './assets/candy-bar-xv.jpg' },
+
+      { id: 12, nombre: 'Bautismo', marca: 'candy', descripcion: 'Caramelos 3 sabores a elección., Gomitas 3 sabores a elección, Chupetines Picodulce., Alfajores Jorgito, Tita & Rhodesia', precio: 33000, cantidad: 1, comen: '40 personas',disponible: true,imagen: './assets/candy-bar-bautismo.jpg' }
+
 ];

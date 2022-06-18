@@ -4,17 +4,17 @@
     <h2 class="d-flex justify-content-center">Candy Bar</h2>
     <h4 class="d-flex justify-content-center mb-3">¡Elegí tu tipo de Candy para cada ocasión!</h4>
     <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-        <div class="col">
+        <div class="col" *ngFor="let p of producto">
             <div class="card h-100">
-                <div class="card-body d-flex flex-column justify-content-between p-4 containerCandyBar">
-                    <img src="./assets/candy-bar-casamiento.jpg">
+                <div class="card-body d-flex flex-column justify-content-between p-4 containerCandyBar" *ngIf="p.precio > 30000">
+                    <img src="{{ p.imagen }}">
                     <div>
-                        <h6 class="text-uppercase text-muted">Casamiento</h6>
-                        <h4 class="display-6 fw-bold">$39.000</h4>
+                        <h4 class="text-uppercase text-muted">{{ p.nombre }}</h4>
+                        <h4 class="display-6 fw-bold">{{ p.precio | currency }}</h4>
                         <hr />
                         <ul class="list-unstyled">
                             <li class="d-flex mb-2">
-                                <span class="fw-bold">60 personas</span>
+                                <span class="fw-bold">{{ p.comen }}</span>
                             </li>
                             <li class="d-flex mb-2">
                                 <span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2">
@@ -59,11 +59,22 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="#" class="btn btn-primary d-block w-100" role="button">Ver Más</a>
+                    <button
+                        (click)="adicionarCarrito(p)"
+                        class="btn btn-success"
+                        type="button"
+                        style="background-color: green"
+                        >
+                        Agregar Al Carrito
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="col">
+    </div>
+</div>     
+<app-footer></app-footer>
+
+        <!-- <div class="col">
             <div class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-between p-4 containerCandyBar">
                     <img src="./assets/candy-bar-xv.jpg">
@@ -180,8 +191,6 @@
                     <a href="#" class="btn btn-primary d-block w-100" role="button">Ver Más</a>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </div>-->
 
-<app-footer></app-footer>
+

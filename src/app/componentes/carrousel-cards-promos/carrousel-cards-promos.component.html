@@ -9,7 +9,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12 col-lg-3" *ngFor="let p of producto">
-      <div class="card" *ngIf="p.precio > 500">
+      <div class="card" *ngIf="p.precio > 500 && p.precio < 2500">
         <img src="{{ p.imagen }}" class="card-img-top" />
         <div class="card-body">
           <h5 class="card-title">{{ p.nombre }}- {{ p.precio | currency }}</h5>

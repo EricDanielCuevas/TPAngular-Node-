@@ -21,7 +21,7 @@ export class CarrouselCardsPromosComponent implements OnInit {
   }
 
   adicionarCarrito(producto){
-    productos.push(producto)
+    //productos.push(producto)
     this.carrito.adicionarCarrito(producto)
     window.alert("se ha seleccionado el producto : "+producto.id);  
   }
