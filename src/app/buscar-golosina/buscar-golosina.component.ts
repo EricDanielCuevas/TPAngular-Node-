@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
+
 import { CarritoService } from '../carrito.service';
-import { productos } from '../productos';
+//usamos la clase apiRest
+import { RestApiService } from '../services/restApiService';
 
 
 @Component({
@@ -11,10 +14,9 @@ import { productos } from '../productos';
 })
 export class BuscarGolosinaComponent implements OnInit {
 
-  productos=[];
-  producto = productos;
-  
-  constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
+  productos = [];
+
+  constructor(private route: ActivatedRoute, private carrito: CarritoService, private restApiService: RestApiService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -26,30 +28,14 @@ export class BuscarGolosinaComponent implements OnInit {
   }
 
   buscarProductos(valorBusqueda) {
-
-    //Aca deberiamos obtener los productos que tenemos en la base de datos
-    let productosEnLaBaseDeDatos = [
-      { id: 1, nombre: 'Chocolate', marca: 'Arcor', titulo: 'chocolate blanco', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' },
-
-      { id: 2, nombre: 'Caramelos', marca: 'Arcor', titulo: 'menta cristal', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
-
-      { id: 3, nombre: 'Chupetines', marca: 'Lipo', titulo: 'sabor a naranja', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' },
-
-      { id: 4, nombre: 'Chocolate', marca: 'Milka', titulo: ' chocolate negro', precio: 233.2, imagen: './assets/arcor_menta_bolsa.png' },
-
-      { id: 5, nombre: 'Barritas', marca: 'Arcor', titulo: 'avena con chocolate', precio: 233.2, imagen: './assets/arcor_miel_menta_bolsa.png' }
-    ];
-
-     if (valorBusqueda != "") {
-       this.productos = this.producto.filter(producto => producto.marca.toUpperCase() == valorBusqueda.toUpperCase());
-     }
-     else {
-       this.productos = this.producto;
-    }
+    //con el suscribe invocamos al Observable para que comparta informacion cuando se pida una solicitud
+    //se le carga el resultado del json a productos
+    this.restApiService.buscarGolosinas(valorBusqueda).subscribe(data => this.productos = data);
+    //muestra los productos encontrados
+    console.log(this.productos);
   }
-  adicionarCarrito(producto){
+  adicionarCarrito(producto) {
     this.carrito.adicionarCarrito(producto)
-    window.alert("se ha seleccionado el producto : "+producto.id);  
+    window.alert("se ha seleccionado el producto : " + producto.id);
   }
-
 }

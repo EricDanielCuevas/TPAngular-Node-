@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'candy', component: CandyComponent },
   { path: 'promos', component: PromosComponent },
-  {path: 'crearcuenta', component: CrearcuentaComponent},
+  { path: 'crearcuenta', component: CrearcuentaComponent },
   { path: 'detalle/:id', component: DetalleProductoComponent },
   //{ path: 'producto/:id', component: CarritoComponent }
 ];
