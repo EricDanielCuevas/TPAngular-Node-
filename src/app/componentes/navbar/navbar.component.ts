@@ -13,14 +13,14 @@ export class NavbarComponent implements OnInit {
     this.productos = CarritoService.listarCarrito();
   }
     
-    ngOnInit(): void {
-      
-    }
+  ngOnInit(): void {
+    
+  }
 
-    onClick(){
-      console.log('ejecutando redirect');
-      this.router.navigate(['/buscar-golosina'])
-    }
+  onClick(){
+    console.log('ejecutando redirect');
+    this.router.navigate(['/buscar-golosina'])
+  }
 
   buscarGolosinas() {
     let golosina = (<HTMLInputElement>document.getElementById("txtGolosinas")).value;
