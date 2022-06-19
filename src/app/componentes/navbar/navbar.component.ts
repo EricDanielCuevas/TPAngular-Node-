@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarritoService } from 'src/app/carrito.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(protected router: Router) { }
-
+  public productos = [];
+  constructor(protected router: Router,public CarritoService:CarritoService) { 
+    this.productos = CarritoService.listarCarrito();
+  }
+    
     ngOnInit(): void {
+      
     }
 
     onClick(){
