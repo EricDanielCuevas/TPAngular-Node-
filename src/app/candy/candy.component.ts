@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CarritoService } from 'src/app/carrito.service';
+import { productoscandy } from 'src/app/productos';
 
 @Component({
   selector: 'app-candy',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandyComponent implements OnInit {
 
-  constructor() { }
+  producto = productoscandy;
+
+  constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
 
   ngOnInit(): void {
+  }
+
+  adicionarCarrito(producto){
+    this.carrito.adicionarCarrito(producto)
+    window.alert("se ha seleccionado el producto : "+producto.id);  
   }
 
 }

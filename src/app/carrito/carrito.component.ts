@@ -24,9 +24,10 @@ export class CarritoComponent implements OnInit {
 
   eliminar(id){
     if(confirm('¿Seguro Desea Eliminar?')){
-      const resultado= this.items.findIndex(e=>e.id==id);
-      this.items.splice(resultado);
-      return this.items;
+      this.carrito.eliminar(id);
+      // const resultado= this.items.findIndex(e=>e.id==id);
+      // this.items.splice(resultado,1);
+      // return this.items;
     }  
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarritoService } from 'src/app/carrito.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  public productos = [];
+  constructor(protected router: Router,public CarritoService:CarritoService) { 
+    this.productos = CarritoService.listarCarrito();
+  }
+    
+  ngOnInit(): void {
+    
+  }
 
-  constructor(protected router: Router) { }
-
-    ngOnInit(): void {
-    }
-
-    onClick(){
-      console.log('ejecutando redirect');
-      this.router.navigate(['/buscar-golosina'])
-    }
+  onClick(){
+    console.log('ejecutando redirect');
+    this.router.navigate(['/buscar-golosina'])
+  }
 
   buscarGolosinas() {
     let golosina = (<HTMLInputElement>document.getElementById("txtGolosinas")).value;
