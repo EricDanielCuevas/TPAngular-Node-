@@ -6,8 +6,8 @@ import { productos } from './productos';
   providedIn: 'root'
 })
 export class CarritoService {
+  productos=productos;
   items =[];
-  
 
   constructor() {}
 
@@ -22,7 +22,13 @@ export class CarritoService {
     if (!encontrado) {
       this.items.push(producto);     
     }
-    
+    //localStorage.setItem("carrito",JSON.stringify(this.items));
+  }
+
+  eliminar(id){
+    const resultado= this.items.findIndex(e=>e.id==id);
+    this.items.splice(resultado,1);
+    return this.items;
   }
 
   limpiarCarrito(){
@@ -31,6 +37,7 @@ export class CarritoService {
   }
 
   listarCarrito(){
+    //this.items=JSON.parse(localStorage.getItem("carrito"));
     return this.items; 
   }
 }

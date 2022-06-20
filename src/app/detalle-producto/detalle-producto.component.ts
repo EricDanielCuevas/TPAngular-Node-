@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { productos } from '../productos';
+import { CarritoService } from '../carrito.service';
 
 
 @Component({
@@ -8,33 +10,33 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalle-producto.component.css']
 })
 export class DetalleProductoComponent implements OnInit {
+  producto; 
+  //cantidad: number = 1;
 
-  cantidad: number = 1;
-
-  public producto = {
-    titulo: "Imperdibles caramelos de miel",
-    precio: 100,
-    precioConDescuento: 50,
-    porcentajeDescuento: 50,
-    imagen: './assets/arcor_miel_menta_bolsa.png',
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-  };
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      let idProducto=Number(params.get("id"))-1;
+      this.producto=productos[idProducto];
+      }
+    );
+   }
+
+   adicionarCarrito(producto){
+    this.carrito.adicionarCarrito(producto)
+    window.alert("se ha seleccionado el producto : "+producto.id);  
   }
 
+  // agregar() {
+  //   if (this.cantidad >= 1) {
+  //     this.cantidad++;
+  //   }
+  // }
 
-  agregar() {
-    if (this.cantidad >= 1) {
-      this.cantidad++;
-    }
-  }
-
-  quitar() {
-    if (this.cantidad > 1) {
-      this.cantidad--;
-    }
-  }
+  // quitar() {
+  //   if (this.cantidad > 1) {
+  //     this.cantidad--;
+  //   }
+  // }
 }
