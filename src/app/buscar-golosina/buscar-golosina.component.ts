@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
+
 import { CarritoService } from '../carrito.service';
-import { productos } from '../productos';
+//usamos la clase apiRest
+import { RestApiService } from '../services/restApiService';
 
 
 @Component({
@@ -11,10 +14,9 @@ import { productos } from '../productos';
 })
 export class BuscarGolosinaComponent implements OnInit {
 
-  productos=[];
-  producto = productos;
-  
-  constructor(private route: ActivatedRoute, private carrito:CarritoService) { }
+  productos = [];
+
+  constructor(private route: ActivatedRoute, private carrito: CarritoService, private restApiService: RestApiService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -26,16 +28,14 @@ export class BuscarGolosinaComponent implements OnInit {
   }
 
   buscarProductos(valorBusqueda) {
-     if (valorBusqueda != "") {
-       this.productos = this.producto.filter(producto => producto.marca.toUpperCase() == valorBusqueda.toUpperCase());
-     }
-     else {
-       this.productos = this.producto;
-    }
+    //con el suscribe invocamos al Observable para que comparta informacion cuando se pida una solicitud
+    //se le carga el resultado del json a productos
+    this.restApiService.buscarGolosinas(valorBusqueda).subscribe(data => this.productos = data);
+    //muestra los productos encontrados
+    console.log(this.productos);
   }
-  adicionarCarrito(producto){
+  adicionarCarrito(producto) {
     this.carrito.adicionarCarrito(producto)
-    window.alert("se ha seleccionado el producto : "+producto.id);  
+    window.alert("se ha seleccionado el producto : " + producto.id);
   }
-
 }
