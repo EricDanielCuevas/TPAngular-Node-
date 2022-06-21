@@ -23,11 +23,17 @@ import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
 import { CarrouselCardsPromosComponent } from './componentes/carrousel-cards-promos/carrousel-cards-promos.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
+import { AgregarProductoComponent } from './home-admin/agregar-producto/agregar-producto.component';
+import { EditarProductoComponent } from './home-admin/editar-producto/editar-producto.component';
 
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home-admin', component: HomeAdminComponent },
+  { path: 'agregar-producto', component: AgregarProductoComponent },
+  { path: 'editar-producto/:id', component: EditarProductoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'buscar-golosina', component: BuscarGolosinaComponent },
@@ -61,7 +67,10 @@ const appRoutes: Routes = [
     CandyComponent,
     CrearcuentaComponent,
     CarrouselCardsPromosComponent,
-    DetalleProductoComponent
+    DetalleProductoComponent,
+    HomeAdminComponent,
+    AgregarProductoComponent,
+    EditarProductoComponent
   ],
   imports: [
     BrowserModule,
