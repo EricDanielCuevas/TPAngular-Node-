@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { CarritoService } from '../carrito.service';
+import { CarritoService } from '../../services/carrito.service';
 //usamos la clase apiRest
-import { RestApiService } from '../services/restApiService';
+import { RestApiService } from '../../services/restApiService';
 
 
 @Component({

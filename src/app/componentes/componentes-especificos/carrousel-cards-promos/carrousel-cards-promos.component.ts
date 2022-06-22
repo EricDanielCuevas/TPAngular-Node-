@@ -1,6 +1,6 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarritoService } from 'src/app/carrito.service';
+import { CarritoService } from 'src/app/services/carrito.service';
 import { productospromo } from 'src/app/productos';
 
 @Injectable({
