@@ -22,11 +22,17 @@
                             <div class="mb-3">
                                 <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
                             </div>
-                            <div class="mb-4">
-                                <input type="password" class="form-control" name="password" placeholder="Repita contraseña" required>
+                            <div class="mb-3">
+                                <input type="nombre" class="form-control" name="nombre" placeholder="Nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="apellido" class="form-control" name="apellido" placeholder="Apellido" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="direccion" class="form-control" name="direccion" placeholder="Direccion" required>
                             </div>
                             <div class="mb-2">
-                                <button class="btn btn-primary d-block w-100" type="submit">Registrar</button>
+                                <button class="btn btn-primary d-block w-100" type="submit" onclick="crearCuenta()">Registrar</button>
                             </div>
                             <p>¿Ya tiene cuenta? <a href="/login" class="text-muted">Ingrese acá</a></p>    
                         </form>
@@ -38,5 +44,44 @@
 </section>
 
 
+<!--
+<div *ngIf="mensajeCrearCuenta.length > 0" class="alert-{{msgType}} m-5 p-2 rounded">{{mensajeCrearCuenta}}</div>
+<div class="container-fluid">
+    <div class="row main-content bg-custom text-center">
+        <div class="col-md-4 text-center company__info">
+            <span class="company__logo"><h2><i class="fab fa-angular"></i></h2></span>
+            <h4 class="company_title">Taller Web 2</h4>
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Register</h2>
+                </div>
+                <div class="row">
+                    <form [formGroup]="crearCuentaForm" class="form-group" (ngSubmit)="crearCuenta()">
+                        <h5 class="text-start">Datos de Usuario</h5>
+                        <div class="row">
+                            <input formControlName="email" type="email" name="email" id="email" class="form__input" placeholder="E-Mail">
+                            <control-messages [control]="crearCuentaForm.get('email')" [field]="'Email'" class="text-start text-danger"></control-messages>
+                        </div>
+                        <div class="row">
+                            <input formControlName="password" type="password" name="password" id="password" class="form__input" placeholder="Password">
+                            <control-messages [control]="crearCuentaForm.get('password')" [field]="'Password'" class="text-start text-danger"></control-messages>
+                        </div>
+                        <div class="row">
+                            <input formControlName="password" type="password" name="password" id="password" class="form__input" placeholder="Password">
+                            <control-messages [control]="crearCuentaForm.get('password')" [field]="'Password'" class="text-start text-danger"></control-messages>
+                        </div>
+                        <div class="row">
+                            <input type="submit" value="Registrarse" class="btn" [disabled]="!crearCuentaForm.valid">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+-->
 
 <app-footer></app-footer>
