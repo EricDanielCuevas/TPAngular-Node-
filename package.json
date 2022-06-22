@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
+    "amazon-cognito-identity-js": "^5.2.9",
     "axios": "^0.21.1",
     "express": "^4.18.1",
     "rxjs": "~6.6.0",
