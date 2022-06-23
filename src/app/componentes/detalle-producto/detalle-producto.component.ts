@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { productos } from '../productos';
-import { CarritoService } from '../carrito.service';
+import { productos } from '../../productos';
+import { CarritoService } from '../../services/carrito.service';
 
 
 @Component({
