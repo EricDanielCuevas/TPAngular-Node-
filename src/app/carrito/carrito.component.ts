@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { productos } from '../productos';
 import{CarritoService} from '../carrito.service';
@@ -11,6 +11,9 @@ import{CarritoService} from '../carrito.service';
 export class CarritoComponent implements OnInit {
   productos=productos;
   items=[];  
+  precio:number;
+  cantidad:number;
+  public total:number;
 
   constructor(protected router: Router,private carrito:CarritoService) { }
 
