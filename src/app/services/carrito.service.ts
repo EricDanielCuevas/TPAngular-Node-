@@ -8,8 +8,17 @@ import { productos } from '../productos';
 export class CarritoService {
   productos=productos;
   items =[];
+  // element;
+  // precioTotal:number;
 
   constructor() {}
+
+  // calcularTotalPrecio(){
+  //   for (const element of this.items) {
+  //     this.element = element
+  //     this.precioTotal+=this.element.precio*this.element.cantidad;
+  //   }
+  // }
 
   adicionarCarrito(producto){
     let encontrado=false;

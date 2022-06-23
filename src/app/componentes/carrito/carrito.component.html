@@ -24,18 +24,16 @@
           <td >{{item.cantidad}}</td>
           <td><span><a (click)=eliminar(item.id) ><i class="material-icons">delete</i></a></span></td>
         </tr>
-        <tr>  
-
-        </tr>  
       </tbody>
       
     </table>
+    
   </div>
   <div class="container mb-5" >
     <button (click)=onClick() class="btn btn-success" type="button" style="background-color: red;">Volver</button>
     <button class="btn btn-danger" type="button" style="background-color: green;">Confirmar Compra</button>
-    <h3 >Total : ${{total}} </h3>
-  </div> 
-  
+    <p>Cantidad de productos : {{items.length}}</p>
 
+    
+  </div> 
 <app-footer></app-footer>

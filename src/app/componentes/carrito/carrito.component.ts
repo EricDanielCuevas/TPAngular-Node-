@@ -11,14 +11,12 @@ import{CarritoService} from '../../services/carrito.service';
 export class CarritoComponent implements OnInit {
   productos=productos;
   items=[];  
-  precio:number;
-  cantidad:number;
-  public total:number;
 
   constructor(protected router: Router,private carrito:CarritoService) { }
 
   ngOnInit(): void {
     this.items=this.carrito.listarCarrito();
+    // this.carrito.calcularTotalPrecio();
   }
 
   onClick(){
@@ -32,7 +30,7 @@ export class CarritoComponent implements OnInit {
       // this.items.splice(resultado,1);
       // return this.items;
     }  
+
   }
 
-  
 }
