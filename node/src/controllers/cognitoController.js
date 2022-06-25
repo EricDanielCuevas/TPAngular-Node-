@@ -48,6 +48,13 @@ crearcuenta: (req, res) => {
       })
     );
 
+    attributeList.push(
+        new AmazonCognitoIdentity.CognitoUserAttribute({
+          Name: "password",
+          Value: password,
+        })
+    );
+
    /* function validarEmail(email){
         let err = "";
         if(!(email.match(regEmail))){
@@ -56,6 +63,33 @@ crearcuenta: (req, res) => {
         return err;
     }
     */
+
+    const signupCognitoUser = (values) => {
+        let { email, password, nombre, apellido, direccion } = values;
+        let attributeList = [];
+       
+        const userPool = cognitoUserPool();
+       
+        attributeList.push(setCognitoUserAttribute('given_name', nombre));
+        attributeList.push(setCognitoUserAttribute('family_name', apellido));
+        attributeList.push(setCognitoUserAttribute('address', direccion));
+        attributeList.push(setCognitoUserAttribute('email', email));
+        attributeList.push(setCognitoUserAttribute('password', password));
+
+       
+        return new Promise((resolve, reject) =>
+         userPool.crearcuenta(email, password, attributeList, null, (err, result) => {
+          if (err) {
+           reject(err);
+          } else {
+           resolve(result);
+          }
+         })
+        );
+       }
+    }
+};
+/*
     userPool.crearcuenta(email, password, attributeList, null, (err, result) => {
 
       if (err) {
@@ -171,7 +205,7 @@ crearcuenta: (req, res) => {
       //Caso de falla
      
   },*/
-};
+//};
 
 module.exports = controller;
-crearcuenta();
+//crearcuenta();
