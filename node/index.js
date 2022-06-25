@@ -10,6 +10,9 @@ const puerto = 3000;
 //llamamos al archivo productosRoutes
 const productosRoutes = require('./routes/productosRoutes');
 
+
+app.use(express.json());
+
 //con este middleware,  Angular puede consumir Node
 app.use((req, res, next) => {
     //acepta cualquier url

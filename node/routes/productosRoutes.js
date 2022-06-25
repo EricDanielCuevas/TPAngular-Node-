@@ -25,4 +25,15 @@ module.exports = (app) => {
         //se responde con ese producto
         res.send(producto);
     });
+
+    app.post('/productos/create', (req, res) =>{
+
+       	let producto = req.body;
+	   
+        let productoCreado = productosServices.createProducto(producto);
+
+        res.send(productoCreado);
+
+    });
+
 }
