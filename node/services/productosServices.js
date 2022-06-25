@@ -36,4 +36,19 @@ const createProducto = (producto) => {
     return producto;
 }
 
-module.exports = {getAll, getById, createProducto }
+    const editProducto = (producto) => {
+
+    let id = producto.id;
+    console.log(id)
+    let marca = producto.marca;
+    console.log(marca)
+    let descripcion = producto.descripcion;
+    let precio = producto.precio;
+    let cantidad = producto.cantidad;
+    let imagen = producto.imagen;
+    console.log(producto);
+
+    return producto;
+}
+
+module.exports = {getAll, getById, createProducto, editProducto}

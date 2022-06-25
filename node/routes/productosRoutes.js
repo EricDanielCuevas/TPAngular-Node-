@@ -10,7 +10,7 @@ module.exports = (app) => {
             //se guarda la golosina que se buscó en el input
             var valorBusqueda = req.query.golosina;
 
-             //se llama al metodogetAll de Servicios y se coloca el resultado en la variable
+            //se llama al metodogetAll de Servicios y se coloca el resultado en la variable
             let productos = productosServices.getAll(valorBusqueda);
 
             //se envia como respuesta los productos
@@ -26,14 +26,25 @@ module.exports = (app) => {
         res.send(producto);
     });
 
-    app.post('/productos/create', (req, res) =>{
+    app.post('/productos/create', (req, res) => {
 
-       	let producto = req.body;
-	   
+        let producto = req.body;
+
         let productoCreado = productosServices.createProducto(producto);
 
         res.send(productoCreado);
 
     });
+
+    app.put('/productos/edit', (req, res) => {
+
+        let producto = req.body;
+
+        let productoEditado = productosServices.editProducto(producto);
+
+        res.send(productoEditado);
+
+    });
+    
 
 }
