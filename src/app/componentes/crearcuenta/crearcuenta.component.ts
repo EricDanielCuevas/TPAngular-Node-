@@ -12,6 +12,7 @@ export class CrearcuentaComponent implements OnInit {
 
   mensajeCrearCuenta: string;
   //crearCuentaForm: any;
+  usuario =[];
 
   constructor(private _builder: FormBuilder, private router:Router, private servicioCognito: CognitoService){
     this.mensajeCrearCuenta = '';
@@ -35,11 +36,11 @@ export class CrearcuentaComponent implements OnInit {
     });
   
     crearcuenta(Nombre: string, Apellido:string, Email:string, Password: string, Direccion: string){
-      this.servicioCognito.crearcuenta(Nombre, Apellido, Email, Password, Direccion).subscribe(data=>{
-        console.log(data)
+      this.servicioCognito.crearcuenta(Nombre, Apellido, Email, Password, Direccion).subscribe(data=> {
+        console.log(data);
       })
       
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     }
      
      onSubmit() {
@@ -48,9 +49,11 @@ export class CrearcuentaComponent implements OnInit {
        var Email=(this.crearCuentaForm.get('email')?.value);
        var Direccion=(this.crearCuentaForm.get('direccion')?.value);      
        var Password=(this.crearCuentaForm.get('contraseña')?.value);
-       this.crearcuenta(Nombre, Apellido, Email, Password, Direccion);  
-     }
-  
+       this.crearcuenta(Nombre, Apellido, Email, Password, Direccion); 
+       
+        console.log(this.crearCuentaForm.value)
+
+      }  
   }
 
   /*    this.mensajeRegister = result.Message ;

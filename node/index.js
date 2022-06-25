@@ -26,16 +26,13 @@ app.listen(puerto);
 var cognito = require('./routes/cognito');
 
 // Middlewares
-app.use(bodyParser.urlencoded({extended : false}));
+//app.use(bodyParser.urlencoded({extended : false}));
 
 // convierte cualquier petición en un objeto json que sea mas simple de leer
 
 app.use(bodyParser.json());
 
-// CORS
-
 // Añadir prefijos a las rutas / Cargar rutas
-
 app.use('/api', cognito);
 
 // Exportar modulo (fichero actual)

@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-// 1- importas la dependencia
+// dependencia
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
