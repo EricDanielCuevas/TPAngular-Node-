@@ -3,6 +3,12 @@ const express = require('express');
 
 const cors = require('cors');
 
+//llamamos a la configuracion de la bdd
+const {dbConexion} = require('./database/config');
+
+//iniciamos la conexion
+dbConexion();
+
 //se crea una nueva instancia de express q será nuestra aplicación
 const app = express();
 

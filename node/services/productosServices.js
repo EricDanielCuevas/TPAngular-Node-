@@ -10,15 +10,24 @@ const productosEnLaBaseDeDatos = [
     { id: 5, nombre: 'Barritas', marca: 'Arcor', descripcion: 'avena con chocolate', precio: 233.2, cantidad: 1, disponible: true,imagen: './assets/arcor_miel_menta_bolsa.png' }
 ];
 
-const getAll = (valorBusqueda) => {
-    if (valorBusqueda != "" && valorBusqueda != undefined) {
-        return productosEnLaBaseDeDatos.filter(p =>
-            //el include es como el like
-            p.marca.toUpperCase().includes(valorBusqueda.toUpperCase(valorBusqueda)));
-    }
-    else {
-        return productosEnLaBaseDeDatos;
-    }
+const { Producto } = require('../models/productos');
+
+// const getAll = (valorBusqueda) => {
+//     var productos = Producto.find();
+    
+//     if (valorBusqueda != "" && valorBusqueda != undefined) {
+//         return productosEnLaBaseDeDatos.filter(p =>
+//             //el include es como el like
+//             p.marca.toUpperCase().includes(valorBusqueda.toUpperCase(valorBusqueda)));
+//     }
+//     else {
+//         return productosEnLaBaseDeDatos;
+//     }
+// }
+
+const getAll = async () => {
+    var productos = await Producto.find();
+    return productos;
 }
 
 const getById = (id) => {
