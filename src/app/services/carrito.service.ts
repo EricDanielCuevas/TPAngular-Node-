@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { productos } from '../productos';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { RestApiService } from '../services/restApiService';
 
 
 @Injectable({
@@ -8,17 +11,8 @@ import { productos } from '../productos';
 export class CarritoService {
   productos=productos;
   items =[];
-  // element;
-  // precioTotal:number;
 
   constructor() {}
-
-  // calcularTotalPrecio(){
-  //   for (const element of this.items) {
-  //     this.element = element
-  //     this.precioTotal+=this.element.precio*this.element.cantidad;
-  //   }
-  // }
 
   adicionarCarrito(producto){
     let encontrado=false;
