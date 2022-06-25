@@ -11,21 +11,27 @@
             <div class="col-sm-8 col-md-6 col-xl-4">
                 <div class="card mb-5 containerRegistrar">
                     <div class="card-body p-4 d-flex flex-column align-items-center">
-                        <form [formGroup]="checkoutForm" class="text-center" method="post" (ngSubmit)="onSubmit(checkoutForm.value)">
+                        <form [formGroup]="checkoutForm" class="text-center" method="post"
+                            (ngSubmit)="onSubmit(checkoutForm.value)">
                             <div class="mb-3">
-                                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" required>
+                                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre"
+                                    required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" formControlName="marca" placeholder="Marca" required>
+                                <input type="text" class="form-control" formControlName="marca" placeholder="Marca"
+                                    required>
                             </div>
                             <div class="mb-3">
-                                <textarea formControlName="descripcion" placeholder="Descripcion" rows="4" cols="45"></textarea>
+                                <textarea formControlName="descripcion" placeholder="Descripcion" rows="4"
+                                    cols="45"></textarea>
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control" formControlName="precio" placeholder="Precio" required>
+                                <input type="number" class="form-control" formControlName="precio" placeholder="Precio"
+                                    required>
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control" formControlName="cantidad" placeholder="Cantidad" required>
+                                <input type="number" class="form-control" formControlName="cantidad"
+                                    placeholder="Cantidad" required>
                             </div>
                             <div class="mb-3">
                                 <input type="file" class="form-control" formControlName="imagen" required>
