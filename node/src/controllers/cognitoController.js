@@ -1,16 +1,15 @@
-"use strict";
 var AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 global.fetch = require("node-fetch");
-var AWS = require("@aws-sdk/client-s3");
+//var AWS = require("@aws-sdk/client-s3");
 const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 const regText = /^[a-zA-Z\s]+$/;
 const regAdress = /^[A-Za-z0-9\s]+$/g;
 const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
 
 const poolData = {
-    UserPoolId : "us-east-1_A3Pxa5rZs", // Your user pool id here   
-    ClientId : "4kore39drljf6vdr7ugrg16egv" // Your client id here
+    UserPoolId : "us-east-1_OsyoZzt4V", // Your user pool id here   
+    ClientId : "vu2cad6o9lbhi0ie0c33abibr" // Your client id here
 }
 var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
@@ -22,10 +21,17 @@ crearcuenta: (req, res) => {
     var direccion = req.body.direccion;
     var password = req.body.password;
 
+  /*new AmazonCognitoIdentity.CognitoUserAttribute().withStandardAttributes({
+        givenName: true,
+        familyName: true,
+        email: true,
+        address: true,
+    }) .withCustomAttributes(...['nombre', 'apellido', 'email', 'direccion']);*/
+
     var attributeList = [];
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({
-        Name: "nombre",
+        Name: "nickname",
         Value: nombre,
       })
     );
@@ -55,6 +61,25 @@ crearcuenta: (req, res) => {
         })
     );
 
+    userPool.signUp(email, password, attributeList, null, (err, result) => {
+        if (err) {
+          return res.status(404).send({
+            status: "Error",
+            message: "El usuario no pudo registrar" + err,
+          });
+        } else {
+          var cognitoUser = result.user;
+          return res.status(200).send({
+            status: "Success",
+            message:
+              "El usuario " +
+              cognitoUser.getUsername() +
+              " se ha  podido registrar",
+          });
+        }
+      });
+    },
+};
    /* function validarEmail(email){
         let err = "";
         if(!(email.match(regEmail))){
@@ -64,13 +89,13 @@ crearcuenta: (req, res) => {
     }
     */
 
-    const signupCognitoUser = (values) => {
+   /* const signupCognitoUser = (values) => {
         let { email, password, nombre, apellido, direccion } = values;
         let attributeList = [];
        
         const userPool = cognitoUserPool();
        
-        attributeList.push(setCognitoUserAttribute('given_name', nombre));
+        attributeList.push(setCognitoUserAttribute('nickname', nombre));
         attributeList.push(setCognitoUserAttribute('family_name', apellido));
         attributeList.push(setCognitoUserAttribute('address', direccion));
         attributeList.push(setCognitoUserAttribute('email', email));
@@ -78,7 +103,7 @@ crearcuenta: (req, res) => {
 
        
         return new Promise((resolve, reject) =>
-         userPool.crearcuenta(email, password, attributeList, null, (err, result) => {
+         userPool.signUp(email, password, attributeList, null, (err, result) => {
           if (err) {
            reject(err);
           } else {
