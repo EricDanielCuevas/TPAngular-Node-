@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 
 //Decorador que marca una clase como disponible para ser proporcionada e inyectada como dependencia//
 @Injectable({
@@ -9,6 +10,11 @@ import { Observable } from 'rxjs';
 
 export class RestApiService {
 
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        })
+    };
 
     apiURL = 'http://localhost:3000';
 
@@ -22,12 +28,20 @@ export class RestApiService {
     buscarGolosinas(valorBusqueda): Observable<any> {
 
         if (valorBusqueda != "" && valorBusqueda != undefined) {
-            
-              //hace una llamada get a esa url (a la api, Node) y retorna la respuesta al /componenteBuscarGolosina y BuscarGolosina lo asigna a la propiedad productos usada ///en el front
+
+            //hace una llamada get a esa url (a la api, Node) y retorna la respuesta al /componenteBuscarGolosina y BuscarGolosina lo asigna a la propiedad productos usada ///en el front
             return this.http.get<any>(this.apiURL + '/productos/getAll?golosina=' + valorBusqueda);
         }
 
         return this.http
             .get<any>(this.apiURL + '/productos/getAll');
+    }
+
+
+
+
+    agregarProductoNuevo(producto): Observable<any> {
+        console.log(producto);
+        return this.http.post<any>(this.apiURL + '/productos/create', producto, this.httpOptions);
     }
 }
