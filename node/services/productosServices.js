@@ -36,7 +36,7 @@ const createProducto = (producto) => {
     return producto;
 }
 
-    const editProducto = (producto) => {
+const editProducto = (producto) => {
 
     let id = producto.id;
     console.log(id)
@@ -51,4 +51,9 @@ const createProducto = (producto) => {
     return producto;
 }
 
-module.exports = {getAll, getById, createProducto, editProducto}
+const deleteProducto = (id) => {
+
+    console.log(id);
+}
+
+module.exports = { getAll, getById, createProducto, editProducto, deleteProducto }
