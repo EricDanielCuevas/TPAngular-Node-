@@ -45,6 +45,9 @@ module.exports = (app) => {
         res.send(productoEditado);
 
     });
-    
 
+    app.delete('/productos/delete/:id', (req, res) => {
+        productosServices.deleteProducto(req.params.id);
+        res.send()
+    })
 }
