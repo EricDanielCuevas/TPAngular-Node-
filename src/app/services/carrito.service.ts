@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { productos } from './productos';
+import { productos } from '../productos';
 
 
 @Injectable({
@@ -8,8 +8,17 @@ import { productos } from './productos';
 export class CarritoService {
   productos=productos;
   items =[];
+  // element;
+  // precioTotal:number;
 
   constructor() {}
+
+  // calcularTotalPrecio(){
+  //   for (const element of this.items) {
+  //     this.element = element
+  //     this.precioTotal+=this.element.precio*this.element.cantidad;
+  //   }
+  // }
 
   adicionarCarrito(producto){
     let encontrado=false;

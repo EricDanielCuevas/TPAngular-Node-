@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { productos } from '../productos';
-import{CarritoService} from '../carrito.service';
+import { productos } from '../../productos';
+import{CarritoService} from '../../services/carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -16,6 +16,7 @@ export class CarritoComponent implements OnInit {
 
   ngOnInit(): void {
     this.items=this.carrito.listarCarrito();
+    // this.carrito.calcularTotalPrecio();
   }
 
   onClick(){
@@ -29,7 +30,7 @@ export class CarritoComponent implements OnInit {
       // this.items.splice(resultado,1);
       // return this.items;
     }  
+
   }
 
-  
 }

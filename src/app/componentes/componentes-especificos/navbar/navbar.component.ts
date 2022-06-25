@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CarritoService } from 'src/app/carrito.service';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-navbar',

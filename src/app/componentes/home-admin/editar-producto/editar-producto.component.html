@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<section class="position-relative py-3 py-xl-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>Editar Producto</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-8 col-md-6 col-xl-4">
+                <div class="card mb-5 containerRegistrar">
+                    <div class="card-body p-4 d-flex flex-column align-items-center">
+                        <form [formGroup]="checkoutForm" class="text-center" method="post" (ngSubmit)="onSubmit(checkoutForm.value)">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" formControlName="marca" placeholder="Marca" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea formControlName="descripcion" placeholder="Descripcion" rows="4" cols="45"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" class="form-control" formControlName="precio" placeholder="Precio" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" class="form-control" formControlName="cantidad" placeholder="Cantidad" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="file" class="form-control" formControlName="imagen" required>
+                            </div>
+
+                            <div class="mb-2">
+                                <button class="btn btn-primary d-block w-100" type="submit">Editar</button>
+                            </div>
+                            <a href="home-admin" type="button" class="btn btn-outline-primary d-block w-100">Volver</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
