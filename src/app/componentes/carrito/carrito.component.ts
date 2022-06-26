@@ -29,7 +29,11 @@ export class CarritoComponent implements OnInit {
 
   eliminar(id){
     if(confirm('¿Seguro Desea Eliminar?')){
-      this.carrito.eliminar(id);
+      this.carrito.eliminar(id);  
+      if (this.items.length>0) {
+        this.items=[];
+        this.ngOnInit(); 
+      }
       // const resultado= this.items.findIndex(e=>e.id==id);
       // this.items.splice(resultado,1);
       // return this.items;
