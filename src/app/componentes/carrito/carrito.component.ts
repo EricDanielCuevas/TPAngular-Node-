@@ -19,6 +19,7 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     this.items=this.carrito.listarCarrito();
     this.total = this.items
+    
       .map((item) => item.precio * item.cantidad)
       .reduce((acc, curr) => acc + curr);
   }
@@ -30,9 +31,11 @@ export class CarritoComponent implements OnInit {
   eliminar(id){
     if(confirm('¿Seguro Desea Eliminar?')){
       this.carrito.eliminar(id);  
-      if (this.items.length>0) {
-        this.items=[];
-        this.ngOnInit(); 
+      if (this.items.length==0) {
+        this.total=0;
+      } 
+      this.ngOnInit(); 
+       
       }
       // const resultado= this.items.findIndex(e=>e.id==id);
       // this.items.splice(resultado,1);
@@ -41,4 +44,3 @@ export class CarritoComponent implements OnInit {
 
   }
 
-}
