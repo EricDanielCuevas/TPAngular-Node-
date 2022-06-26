@@ -29,6 +29,7 @@
     </table>
     
   </div>
+  <h3 *ngIf="items.length == 0 || items.length==null" style="text-align: center;">No Hay productos para mostrar </h3>
   <div class="container mb-5" >
     <button (click)=onClick() class="btn btn-success" type="button" style="background-color: red;">Volver</button>
     <button class="btn btn-danger" type="button" style="background-color: green;">Confirmar Compra</button>
