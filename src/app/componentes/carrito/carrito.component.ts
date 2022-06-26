@@ -13,15 +13,20 @@ export class CarritoComponent implements OnInit {
   productos=productos;
   items=[];  
   total: number = 0;
+  totalCantidad: number=0;
 
   constructor(protected router: Router,private carrito:CarritoService) { }
 
   ngOnInit(): void {
     this.items=this.carrito.listarCarrito();
-    this.total = this.items
     
+    this.total = this.items
       .map((item) => item.precio * item.cantidad)
       .reduce((acc, curr) => acc + curr);
+    
+      this.totalCantidad=this.items
+      .map((item) =>item.cantidad )
+      .reduce((acc, curr) => acc + curr);  
   }
 
   onClick(){
@@ -34,6 +39,7 @@ export class CarritoComponent implements OnInit {
       console.log("id Encontrado :"+id); 
       this.carrito.eliminar(id);  
       if (this.items.length==0){this.total=0;} 
+      if (this.items.length==0){this.totalCantidad=0;}
       if(this.items.length!=0){this.ngOnInit();}   
     }
   }  
