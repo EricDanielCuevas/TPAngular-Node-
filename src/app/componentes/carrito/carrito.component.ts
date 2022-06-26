@@ -30,11 +30,14 @@ export class CarritoComponent implements OnInit {
 
   eliminar(id){
     if(confirm('¿Seguro Desea Eliminar?')){
+      console.log("cant items:"+this.items); 
+      console.log("id Encontrado :"+id); 
       this.carrito.eliminar(id);  
-      if (this.items.length==0) this.total=0;
-      this.ngOnInit(); 
-      }
-    }  
+      if (this.items.length==0){this.total=0;} 
+      if(this.items.length!=0){this.ngOnInit();}   
+    }
+  }  
 
-  }
+  
+}
 
