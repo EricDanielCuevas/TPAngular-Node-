@@ -2,7 +2,11 @@
 var AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 global.fetch = require("node-fetch");
-// var AWS = require("@aws-sdk/client-s3");
+var AWS = require("@aws-sdk/client-s3");
+const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+const regText = /^[a-zA-Z\s]+$/;
+const regAdress = /^[A-Za-z0-9\s]+$/g;
+const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
 
 const poolData = {
     UserPoolId : "us-east-1_A3Pxa5rZs", // Your user pool id here   
@@ -11,25 +15,32 @@ const poolData = {
 var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
 var controller = {
-crearCuenta: (req, res) => {
-    var name = req.body.name;
-    var familyName = req.body.familyName;
+crearcuenta: (req, res) => {
+    var nombre = req.body.nombre;
+    var apellido = req.body.apellido;
     var email = req.body.email;
+    var direccion = req.body.direccion;
     var password = req.body.password;
 
     var attributeList = [];
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({
-        Name: "name",
-        Value: name,
+        Name: "nombre",
+        Value: nombre,
       })
     );
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({
         Name: "family_name",
-        Value: familyName,
+        Value: apellido,
       })
     );
+    attributeList.push(
+        new AmazonCognitoIdentity.CognitoUserAttribute({
+          Name: "address",
+          Value: direccion,
+        })
+      );
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({
         Name: "email",
@@ -37,25 +48,68 @@ crearCuenta: (req, res) => {
       })
     );
 
-    userPool.signUp(email, password, attributeList, null, (err, result) => {
+    attributeList.push(
+        new AmazonCognitoIdentity.CognitoUserAttribute({
+          Name: "password",
+          Value: password,
+        })
+    );
+
+   /* function validarEmail(email){
+        let err = "";
+        if(!(email.match(regEmail))){
+            err = "\nEmail no valido.";
+        }
+        return err;
+    }
+    */
+
+    const signupCognitoUser = (values) => {
+        let { email, password, nombre, apellido, direccion } = values;
+        let attributeList = [];
+       
+        const userPool = cognitoUserPool();
+       
+        attributeList.push(setCognitoUserAttribute('given_name', nombre));
+        attributeList.push(setCognitoUserAttribute('family_name', apellido));
+        attributeList.push(setCognitoUserAttribute('address', direccion));
+        attributeList.push(setCognitoUserAttribute('email', email));
+        attributeList.push(setCognitoUserAttribute('password', password));
+
+       
+        return new Promise((resolve, reject) =>
+         userPool.crearcuenta(email, password, attributeList, null, (err, result) => {
+          if (err) {
+           reject(err);
+          } else {
+           resolve(result);
+          }
+         })
+        );
+       }
+    }
+};
+/*
+    userPool.crearcuenta(email, password, attributeList, null, (err, result) => {
+
       if (err) {
         return res.status(404).send({
           status: "Error",
           message: "El usuario no se ha podido registrar" + err,
         });
       } else {
-        var cognitoUser = result.user;
+        var cognitoUsuario = result.usuario;
         return res.status(200).send({
           status: "Success",
           message:
             "El usuario " +
-            cognitoUser.getUsername() +
+            cognitoUsuario.getUsername() +
             " se ha  podido registrar",
         });
       }
     });
   },
-  confirmarRegistro: (req, res) => {
+  /*confirmarRegistro: (req, res) => {
     var codigo = req.body.codigo;
     var username = req.body.username;
     var userData = {
@@ -64,7 +118,6 @@ crearCuenta: (req, res) => {
     };
 
     //validar que el username exista
-    
     var user = new AmazonCognitoIdentity.CognitoUser(userData);
 
     user.confirmRegistration(codigo, true, (err, result) => {
@@ -80,9 +133,9 @@ crearCuenta: (req, res) => {
         });
       }
     });
-  },
+  },*/
 
-  resendCodeConfirmation: (req, res) => {
+  /*resendCodeConfirmation: (req, res) => {
     var username = req.body.username;
     var userData = {
       Username: username,
@@ -103,9 +156,9 @@ crearCuenta: (req, res) => {
         });
       }
     });
-  },
+  },*/
 
-  login: (req, res) => {
+  /*login: (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
 
@@ -151,8 +204,8 @@ crearCuenta: (req, res) => {
     });
       //Caso de falla
      
-  },
-};
+  },*/
+//};
 
 module.exports = controller;
-//registerUser();
+//crearcuenta();

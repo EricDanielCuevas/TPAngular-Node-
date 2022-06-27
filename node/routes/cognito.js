@@ -1,12 +1,10 @@
-'use strict'
-
 var express = require('express');
 
-var userController = require('../controllers/cognitoController');
+var cognitoController = require('../controllers/cognitoController');
 
 var router = express.Router();
 
-router.post('/crearcuenta' , userController.registerUser);
+router.post('/crearcuenta' , cognitoController.crearcuenta);
 
 /*
 router.post('/confirm-user' , userController.confirmarRegistro);

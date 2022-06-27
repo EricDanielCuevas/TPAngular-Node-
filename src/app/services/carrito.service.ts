@@ -14,24 +14,32 @@ export class CarritoService {
 
   constructor() {}
 
+  ngOnInit(){
+    this.items=this.listarCarrito();
+  }
+
   adicionarCarrito(producto){
     let encontrado=false;
     this.items.forEach(elemento => {
       if(elemento.id==producto.id){
         encontrado=true;
         elemento.cantidad+=1;
+        localStorage.setItem("carrito",JSON.stringify(this.items));
       }
     });
     if (!encontrado) {
-      this.items.push(producto);     
+      this.items.push(producto);   
+      localStorage.setItem("carrito",JSON.stringify(this.items)); 
     }
-    //localStorage.setItem("carrito",JSON.stringify(this.items));
+    
   }
 
   eliminar(id){
     const resultado= this.items.findIndex(e=>e.id==id);
-    this.items.splice(resultado,1);
-    return this.items;
+    if(this.items[resultado].cantidad > 1) { 
+      this.items[resultado].cantidad -= 1 } 
+      else { this.items.splice(resultado, 1) }
+      localStorage.setItem("carrito",JSON.stringify(this.items)); 
   }
 
   limpiarCarrito(){
@@ -39,8 +47,11 @@ export class CarritoService {
     return this.items;
   }
 
-  listarCarrito(){
-    //this.items=JSON.parse(localStorage.getItem("carrito"));
-    return this.items; 
+  listarCarrito() {
+    this.items=JSON.parse(localStorage.getItem("carrito"));  
+    return this.items;
   }
+
+  
 }
+

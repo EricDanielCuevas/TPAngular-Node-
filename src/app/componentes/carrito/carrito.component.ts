@@ -13,14 +13,20 @@ export class CarritoComponent implements OnInit {
   productos=productos;
   items=[];  
   total: number = 0;
+  totalCantidad: number=0;
 
   constructor(protected router: Router,private carrito:CarritoService) { }
 
   ngOnInit(): void {
     this.items=this.carrito.listarCarrito();
+    
     this.total = this.items
       .map((item) => item.precio * item.cantidad)
       .reduce((acc, curr) => acc + curr);
+    
+      this.totalCantidad=this.items
+      .map((item) =>item.cantidad )
+      .reduce((acc, curr) => acc + curr);  
   }
 
   onClick(){
@@ -29,12 +35,15 @@ export class CarritoComponent implements OnInit {
 
   eliminar(id){
     if(confirm('¿Seguro Desea Eliminar?')){
-      this.carrito.eliminar(id);
-      // const resultado= this.items.findIndex(e=>e.id==id);
-      // this.items.splice(resultado,1);
-      // return this.items;
-    }  
+      console.log("cant items:"+this.items); 
+      console.log("id Encontrado :"+id); 
+      this.carrito.eliminar(id);  
+      if (this.items.length==0){this.total=0;} 
+      if (this.items.length==0){this.totalCantidad=0;}
+      if(this.items.length!=0){this.ngOnInit();}   
+    }
+  }  
 
-  }
-
+  
 }
+
