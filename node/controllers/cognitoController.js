@@ -1,7 +1,7 @@
 var AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 global.fetch = require("node-fetch");
-//var AWS = require("@aws-sdk/client-s3");
+var AWS = require("@aws-sdk/client-s3");
 const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 const regText = /^[a-zA-Z\s]+$/;
 const regAdress = /^[A-Za-z0-9\s]+$/g;

@@ -1,7 +1,7 @@
 var AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 var express = require('express');
 
-var cognitoController = require('../src/controllers/cognitoController');
+var cognitoController = require('../controllers/cognitoController');
 
 var router = express.Router();
 
