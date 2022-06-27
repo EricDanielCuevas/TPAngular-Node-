@@ -31,7 +31,6 @@ export class CarritoService {
   eliminar(id){
     const resultado= this.items.findIndex(e=>e.id==id);
     this.items.splice(resultado,1);
-    return this.items;
   }
 
   limpiarCarrito(){
@@ -39,8 +38,10 @@ export class CarritoService {
     return this.items;
   }
 
-  listarCarrito(){
-    //this.items=JSON.parse(localStorage.getItem("carrito"));
-    return this.items; 
+  listarCarrito() {
+  return this.items;
   }
+
+  
 }
+
