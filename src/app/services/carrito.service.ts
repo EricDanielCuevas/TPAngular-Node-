@@ -23,14 +23,18 @@ export class CarritoService {
       }
     });
     if (!encontrado) {
-      this.items.push(producto);     
+      this.items.push(producto);   
+      localStorage.setItem("carrito",JSON.stringify(this.items));  
     }
-    //localStorage.setItem("carrito",JSON.stringify(this.items));
+    
   }
 
   eliminar(id){
     const resultado= this.items.findIndex(e=>e.id==id);
-    this.items.splice(resultado,1);
+    if(this.items[resultado].cantidad > 1) { 
+      this.items[resultado].cantidad -= 1 } 
+      else { this.items.splice(resultado, 1) }
+    //this.items=JSON.parse(localStorage.getItem("carrito"))
   }
 
   limpiarCarrito(){
@@ -39,6 +43,7 @@ export class CarritoService {
   }
 
   listarCarrito() {
+  //this.items=JSON.parse(localStorage.getItem("carrito"))  
   return this.items;
   }
 
