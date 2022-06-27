@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito.service';
+import { CarritoComponent } from '../../carrito/carrito.component';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +10,13 @@ import { CarritoService } from 'src/app/services/carrito.service';
 })
 export class NavbarComponent implements OnInit {
   public productos = [];
-  constructor(protected router: Router,public CarritoService:CarritoService) { 
+  
+  constructor(protected router: Router,public CarritoService:CarritoService, carritoComponent:CarritoComponent) { 
     this.productos = CarritoService.listarCarrito();
   }
     
   ngOnInit(): void {
-    
+    this.productos = this.CarritoService.listarCarrito();
   }
 
   onClick(){
