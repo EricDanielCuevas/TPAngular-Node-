@@ -15,7 +15,7 @@ export class CarritoService {
   constructor() {}
 
   ngOnInit(){
-    this.listarCarrito();
+    this.items=this.listarCarrito();
   }
 
   adicionarCarrito(producto){
