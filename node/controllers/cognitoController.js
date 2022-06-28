@@ -8,8 +8,8 @@ const regAdress = /^[A-Za-z0-9\s]+$/g;
 const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
 
 const poolData = {
-    UserPoolId : "us-east-1_OsyoZzt4V", // Your user pool id here   
-    ClientId : "vu2cad6o9lbhi0ie0c33abibr" // Your client id here
+    UserPoolId : "us-east-1_EaLfyfIkb", // Your user pool id here   
+    ClientId : "780nenpk6juuce1avcl29tluve" // Your client id here
 }
 var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
@@ -21,17 +21,10 @@ crearcuenta: (req, res) => {
     var direccion = req.body.direccion;
     var password = req.body.password;
 
-  /*new AmazonCognitoIdentity.CognitoUserAttribute().withStandardAttributes({
-        givenName: true,
-        familyName: true,
-        email: true,
-        address: true,
-    }) .withCustomAttributes(...['nombre', 'apellido', 'email', 'direccion']);*/
-
     var attributeList = [];
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({
-        Name: "nickname",
+        Name: "given_name",
         Value: nombre,
       })
     );
@@ -54,13 +47,6 @@ crearcuenta: (req, res) => {
       })
     );
 
-    attributeList.push(
-        new AmazonCognitoIdentity.CognitoUserAttribute({
-          Name: "password",
-          Value: password,
-        })
-    );
-
     userPool.signUp(email, password, attributeList, null, (err, result) => {
         if (err) {
           return res.status(404).send({
@@ -79,7 +65,38 @@ crearcuenta: (req, res) => {
         }
       });
     },
+
+    login: (req, res) => {
+      var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
+        Username: req.body.email,
+        Password: req.body.password,
+      });
+
+      var userData = {
+        Username: req.body.email,
+        Pool: userPool,
+      };
+      var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+      cognitoUser.authenticateUser(authenticationDetails, {
+        onSuccess: function (result) {
+          console.log("access token + " + result.getAccessToken().getJwtToken());
+          console.log("id token + " + result.getIdToken().getJwtToken());
+          console.log("refresh token + " + result.getRefreshToken().getToken());
+          //respuesta del post, puse para que devuelva el token, hay que ver como traer los datos del usuario
+          res.status(200).jsonp(result.getAccessToken().getJwtToken());
+        },
+        onFailure: function (err) {
+          const error = {
+            message: err.message,
+            code: err.code,
+          };
+          console.log(error);
+          res.status(500).send(error);
+        },
+      });
+    },
 };
+
    /* function validarEmail(email){
         let err = "";
         if(!(email.match(regEmail))){
@@ -89,51 +106,6 @@ crearcuenta: (req, res) => {
     }
     */
 
-   /* const signupCognitoUser = (values) => {
-        let { email, password, nombre, apellido, direccion } = values;
-        let attributeList = [];
-       
-        const userPool = cognitoUserPool();
-       
-        attributeList.push(setCognitoUserAttribute('nickname', nombre));
-        attributeList.push(setCognitoUserAttribute('family_name', apellido));
-        attributeList.push(setCognitoUserAttribute('address', direccion));
-        attributeList.push(setCognitoUserAttribute('email', email));
-        attributeList.push(setCognitoUserAttribute('password', password));
-
-       
-        return new Promise((resolve, reject) =>
-         userPool.signUp(email, password, attributeList, null, (err, result) => {
-          if (err) {
-           reject(err);
-          } else {
-           resolve(result);
-          }
-         })
-        );
-       }
-    }
-};
-/*
-    userPool.crearcuenta(email, password, attributeList, null, (err, result) => {
-
-      if (err) {
-        return res.status(404).send({
-          status: "Error",
-          message: "El usuario no se ha podido registrar" + err,
-        });
-      } else {
-        var cognitoUsuario = result.usuario;
-        return res.status(200).send({
-          status: "Success",
-          message:
-            "El usuario " +
-            cognitoUsuario.getUsername() +
-            " se ha  podido registrar",
-        });
-      }
-    });
-  },
   /*confirmarRegistro: (req, res) => {
     var codigo = req.body.codigo;
     var username = req.body.username;
@@ -182,55 +154,6 @@ crearcuenta: (req, res) => {
       }
     });
   },*/
-
-  /*login: (req, res) => {
-    var username = req.body.username;
-    var password = req.body.password;
-
-    var authenticationData = {
-      Username: username,
-      Password: password,
-    };
-    var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
-
-    var userData = {
-      Username: username,
-      Pool: userPool,
-    };
-
-    var user = new AmazonCognitoIdentity.CognitoUser(userData);
-
-    user.authenticateUser(authenticationDetails, {
-      // Caso de exito
-      onSuccess: function (result) {
-        var accessToken = result.getAccessToken().getJwtToken();
-      
-          if (error) {
-            return res.status(404).send({
-              status: "Error",
-              message: error,
-            });
-          } else {
-            return res.status(200).send({
-              status: "Success",
-              accessToken: accessToken,
-              message: "Exitosamente logueado",
-            });
-          }
-        },
-        onFailure: function(err) {
-          return res.status(404).send({
-            status: "Error Failure",
-            message: err.message,
-          });
-        }
-  
-      
-    });
-      //Caso de falla
-     
-  },*/
-//};
 
 module.exports = controller;
 //crearcuenta();
