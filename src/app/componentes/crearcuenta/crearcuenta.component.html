@@ -14,7 +14,7 @@
                             <img src="./assets/logo-goloteca.png" alt="" width="150" height="150">
                         </div>
                 <div class="card-body">
-                    <form class="text-center" method="post" [formGroup]="crearCuentaForm"><!-- (ngSubmit)="onSubmit()"> -->
+                    <form class="text-center" method="post" [formGroup]="crearCuentaForm" (ngSubmit)="onSubmit()"><!-- (ngSubmit)="onSubmit()"> -->
                         <div class="form-row">
                             <div class="mb-3 form-group">
                                 <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su email" required>
@@ -64,7 +64,9 @@
                                 <span>La contraseñas no coinciden</span>
                             </div>
                             -->
-                        <button  class="btn btn-primary d-block w-100" type="submit" [disabled]="!crearCuentaForm.valid">Crear Cuenta</button> <!-- (click)="crearcuenta()"-->
+                            <button  class="btn btn-primary d-block w-100" type="submit" [disabled]="!crearCuentaForm.valid" (click)="onSubmit()">Crear Cuenta</button> <!-- (click)="crearcuenta()"-->
+
+                      <!--  <button  class="btn btn-primary d-block w-100" type="submit" [disabled]="!crearCuentaForm.valid" (click)="crearcuenta(crearCuentaForm.value.nombre, crearCuentaForm.value.apellido, crearCuentaForm.value.email, crearCuentaForm.value.password, crearCuentaForm.value.direccion)">Crear Cuenta</button> -->
                     </div>
                     </form>
                 </div>

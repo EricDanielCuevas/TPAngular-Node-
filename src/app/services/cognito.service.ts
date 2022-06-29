@@ -1,5 +1,7 @@
+"use strict";
+
 import { Injectable, OnInit } from '@angular/core';
-// 1- importas la dependencia
+// dependencia
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -13,7 +15,7 @@ export class CognitoService {
     }
 
       crearcuenta(name: string, apellido: string, email:string, password:string, direccion: string) {
-        return this.http.post('http://localhost:3900/api/crearcuenta',{name, apellido ,email, password, direccion},{observe:'response'}) ;
+        return this.http.post('http://localhost:3000/api/crearcuenta',{name, apellido ,email, password, direccion},{observe:'response'}) ;
       }
 
 }
