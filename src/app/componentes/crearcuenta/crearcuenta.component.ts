@@ -13,7 +13,6 @@ export class CrearcuentaComponent implements OnInit {
   mensajeCrearCuenta: string;
   crearCuentaForm: FormGroup;
   //usuario =[];
-
   nombre!: String;
   apellido!: String;
   direccion!: String;
@@ -21,7 +20,6 @@ export class CrearcuentaComponent implements OnInit {
   password!: String;
   constructor(private _builder: FormBuilder, private router:Router, private servicioCognito: CognitoService){
     this.mensajeCrearCuenta = '';
-
   }  
 
   ngOnInit(): void {
@@ -32,7 +30,8 @@ export class CrearcuentaComponent implements OnInit {
       email: new FormControl('',[Validators.required,Validators.email]),
       password: new FormControl('',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/)]),
     });
-  }  
+  }
+
     crearcuenta(Nombre: string, Apellido:string, Email:string, Password: string, Direccion: string){
       this.servicioCognito.crearcuenta(Nombre, Apellido, Email, Password, Direccion).subscribe(data=> {
 
@@ -52,13 +51,13 @@ export class CrearcuentaComponent implements OnInit {
        var Direccion=(this.crearCuentaForm.get('direccion')?.value);      
        var Password=(this.crearCuentaForm.get('password')?.value);
 
-       if (Nombre != '' && Apellido != '' && Email != '' && Direccion != '' && Password != '' ){
-        this.crearcuenta(Nombre, Apellido, Email, Password, Direccion); 
-       
-        window.alert(Nombre + " " + "Se ha creado su cuenta, verifiquela");
-      }else{
-        window.alert("Verifique los campos");
-      }
+        if (Nombre != '' && Apellido != '' && Email != '' && Direccion != '' && Password != '' ){
+          this.crearcuenta(Nombre, Apellido, Email, Password, Direccion); 
+        
+          window.alert(Nombre + " " + "Se ha creado su cuenta, verifiquela");
+        }else{
+          window.alert("Verifique los campos");
+        }
       }
 
   }
