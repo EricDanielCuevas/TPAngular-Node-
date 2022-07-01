@@ -1,7 +1,6 @@
 //llamamos a la libreria que permite publicar y acceder a servicios
 const express = require('express');
 var bodyParser = require('body-parser');
-
 const cors = require('cors');
 
 //se crea una nueva instancia de express q será nuestra aplicación
@@ -26,7 +25,7 @@ app.listen(puerto);
 var cognito = require('./routes/cognito');
 
 // Middlewares
-//app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({extended : false}));
 
 // convierte cualquier petición en un objeto json que sea mas simple de leer
 
