@@ -10,6 +10,6 @@ export const routes: Routes = [
   { path: '/', component: HomeComponent, canActivate: [VigilanteGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'crearcuenta', component: CrearcuentaComponent },
-  { path: 'carrito', component: CarritoComponent, canActivate: [VigilanteGuard] },
+  { path: 'carrito', component: CarritoComponent, canActivate: [VigilanteGuard]},
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
