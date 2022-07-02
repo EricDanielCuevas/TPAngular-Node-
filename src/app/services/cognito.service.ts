@@ -18,4 +18,8 @@ export class CognitoService {
         return this.http.post('http://localhost:3000/api/crearcuenta',{name, apellido ,email, password, direccion},{observe:'response'}) ;
       }
 
+      login(email:string, password:string) {
+        return this.http.post('http://localhost:3000/api/login',{email, password},{observe:'response'}) ;
+      }
+
 }
