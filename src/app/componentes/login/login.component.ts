@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CognitoService } from '../../services/cognito.service';
+import { UsuarioService } from '../../services/usuario.service';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-login',
@@ -7,11 +12,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  iniciarSesionForm: FormGroup;
+  
+  email!: any;
+  password!: any;
+  mensajeLogin: string;
+  isLogged!: Boolean;
+  authToken!: any;
+  error!: Boolean;
 
-  constructor(protected router: Router) { }
+  constructor(private cookieService: CookieService, protected router: Router,private servicioCognito: CognitoService, private _builder: FormBuilder, private _usuarioService: UsuarioService) { }
 
-  ngOnInit(): void {
+ /* ngOnInit(): void {
+    this.iniciarSesionForm = this._builder.group({
+      email: new FormControl('',[Validators.required,Validators.email]),
+      password: new FormControl('',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/)]),
+  });
+}*/
+
+ngOnInit(): void {
+  this.isLogged = this.cookieService.check('token_access');
+  if (this.isLogged) {
+    this.router.navigate(['/login']);
   }
+  this.iniciarSesionForm = this._builder.group({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    //recordardatos: new FormControl(false, Validators.required),
+  });
+}
 
 onClick() {
   this.email = this.iniciarSesionForm.get('email')?.value;
@@ -49,5 +78,10 @@ onClick() {
   } else {
     alert('los campos usuario o password no pueden estar vacios');
   }
+}
+
+crearcuenta(){
+  this.router.navigate(['/crearcuenta'])
+}
 
 }
