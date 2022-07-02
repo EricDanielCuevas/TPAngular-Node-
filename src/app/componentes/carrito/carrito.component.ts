@@ -10,6 +10,7 @@ import{CarritoService} from '../../services/carrito.service';
 })
 export class CarritoComponent implements OnInit {
   name = 'Angular ' + VERSION.major;
+  productos=productos;
   items=[];  
   total: number = 0;
   totalCantidad: number=0;
@@ -41,17 +42,7 @@ export class CarritoComponent implements OnInit {
       if (this.items.length==0){this.totalCantidad=0;}
       if(this.items.length!=0){this.ngOnInit();}   
     }
-  }
-  
-  confirmarCompra(){
-    this.carrito.postConfirmarCompra().subscribe({
-      next:()=>{this.items=this.carrito.limpiarCarrito()},
-      error(err) {
-        console.log(err);    
-      }
-    });
-    //this.carrito.postConfirmarCompra().subscribe(()=>{this.items=this.carrito.limpiarCarrito()});
-  }
+  }  
 
   
 }

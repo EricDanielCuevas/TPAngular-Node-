@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck {
   public productos = [];
-  
-  constructor(protected router: Router,public CarritoService:CarritoService) { 
+  isLogged!: Boolean
+
+  constructor(private cookieService: CookieService, protected router: Router,public CarritoService:CarritoService) { 
     this.productos = this.CarritoService.listarCarrito();
   }
     
@@ -29,4 +31,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/buscar-golosina', { golosina }]);
   }
 
+  ngDoCheck(): void {
+    this.isLogged = this.cookieService.check("token_access")
+  }
+
+  LogOut(){
+    this.cookieService.delete("token_access")
+    this.router.navigate(["/"])
+  }
 }

@@ -15,21 +15,30 @@
                         <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4">
                             <img src="./assets/logo-goloteca.png" alt="" width="150" height="150">
                         </div>
-                        <form class="text-center" method="post">
-                            <div class="mb-3">
-                                <input type="email" class="form-control" name="email" placeholder="E-mail" required>
-                            </div>
-                            <div class="mb-4">
-                                <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
-                            </div>
+                        <form class="text-center" method="post" [formGroup]="iniciarSesionForm" (ngSubmit)="onClick()">
+                            <div class="form-row">
+                                <div class="mb-3 form-group">
+                                    <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su email" required>
+                                    <div class="text-danger" *ngIf="iniciarSesionForm.get('email')?.hasError('pattern') || iniciarSesionForm.get('email')?.hasError('required')">
+                                        <span>El email es obligatorio</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" formControlName="password" class="form-control" placeholder="Ingrese su contraseña" required>                            
+                                    <div class="text-danger" *ngIf="iniciarSesionForm.get('password')?.hasError('required')">
+                                        <span class="error-msg">La contraseña es obligatoria</span>
+                                    </div>
+                                </div>
                             <div class="mb-2">
-                                <button class="btn btn-primary d-block w-100" type="submit">Continuar</button>
+                                <button  class="btn btn-primary d-block w-100" type="submit" [disabled]="!iniciarSesionForm.valid" (click)="onClick()">Iniciar Sesion</button> <!-- (click)="crearcuenta()"-->
                             </div>
+                            </div>
+                        </form>
+
                             <div class="mb-3">
-                                <button (click)='onClick();' class="btn btn-outline-primary d-block w-100" type="submit">Crear cuenta</button>
+                                <button (click)='crearcuenta();' class="btn btn-outline-primary d-block w-100" type="submit">Crear Cuenta</button>
                             </div>
                             <a href="" class="text-muted">¿Olvidó su contraseña?</a>
-                        </form>
                     </div>
                 </div>
             </div>
