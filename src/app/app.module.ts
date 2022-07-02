@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeAdminComponent } from './componentes/home-admin/home-admin.component';
 import { AgregarProductoComponent } from './componentes/home-admin/agregar-producto/agregar-producto.component';
 import { EditarProductoComponent } from './componentes/home-admin/editar-producto/editar-producto.component';
+import { VigilanteGuard } from 'src/app/guard/vigilante.guard';
 
 
 
@@ -33,9 +34,9 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home-admin', component: HomeAdminComponent },
   { path: 'agregar-producto', component: AgregarProductoComponent },
-  { path: 'editar-producto/:id', component: EditarProductoComponent },
+  { path: 'editar-producto/:id', component: EditarProductoComponent  , canActivate: [VigilanteGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'carrito', component: CarritoComponent },
+  { path: 'carrito', component: CarritoComponent,canActivate: [VigilanteGuard]  },
   { path: 'buscar-golosina', component: BuscarGolosinaComponent },
   { path: 'view', component: ViewDemoComponent },
   { path: 'iterate', component: IterateComponentComponent },
@@ -43,8 +44,9 @@ const appRoutes: Routes = [
   { path: 'candy', component: CandyComponent },
   { path: 'promos', component: PromosComponent },
   { path: 'crearcuenta', component: CrearcuentaComponent },
-  { path: 'detalle/:id', component: DetalleProductoComponent },
-  { path: 'producto/:id', component: CarritoComponent }
+  { path: 'detalle/:id', component: DetalleProductoComponent},
+  { path: 'producto/:id', component: CarritoComponent , canActivate: [VigilanteGuard] },
+  { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 
 @NgModule({

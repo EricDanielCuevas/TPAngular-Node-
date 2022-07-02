@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { VigilanteGuard } from './vigilar.guard';
+import { VigilanteGuard } from './vigilante.guard';
 
 describe('VigilanteGuard', () => {
   let guard: VigilanteGuard;

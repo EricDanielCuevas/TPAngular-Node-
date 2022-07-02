@@ -67,11 +67,12 @@ onClick() {
         500;
         this.error = true;
         if (err.error.code != 'UserNotConfirmedException') {
-          alert(err.error.code);
-        } else {
-          alert(err.error.code);
-        }
-        this.mensajeLogin = err.error.message;
+          window.alert(err.error.message);
+        }   else {
+          window.alert(err.error.message);
+        }        
+        //this.mensajeLogin = err.error.message;
+        //window.alert(err.error.message);
       }
     );
   } else {
