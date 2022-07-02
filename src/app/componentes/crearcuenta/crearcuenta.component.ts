@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CognitoService } from '../../services/cognito.service';
 
 @Component({
   selector: 'app-crearcuenta',
@@ -9,9 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CrearcuentaComponent implements OnInit {
 
   mensajeCrearCuenta: string;
-  crearCuentaForm: any;
+  //crearCuentaForm: any;
+  usuario =[];
 
-  constructor(private _builder: FormBuilder) { 
+  constructor(private _builder: FormBuilder, private router:Router, private servicioCognito: CognitoService){
     this.mensajeCrearCuenta = '';
     this.crearCuentaForm = this._builder.group({
       email: '',
@@ -20,22 +23,42 @@ export class CrearcuentaComponent implements OnInit {
      apellido: '',
      direccion: ''
     })
-  }
+  }  
 
   ngOnInit(): void {
   }
+  crearCuentaForm = new FormGroup({
+      nombre: new FormControl('', Validators.required),
+      apellido: new FormControl('', Validators.required),
+      email: new FormControl('',[Validators.required,Validators.email]),
+      direccion: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required, Validators.minLength(8)]),
+    });
+  
+    crearcuenta(Nombre: string, Apellido:string, Email:string, Password: string, Direccion: string){
+      this.servicioCognito.crearcuenta(Nombre, Apellido, Email, Password, Direccion).subscribe(data=> {
+        console.log(data);
+      })
+      
+      this.router.navigate(['/home']);
+    }
+     
+     onSubmit() {
+       var Nombre=(this.crearCuentaForm.get('nombre')?.value);
+       var Apellido=(this.crearCuentaForm.get('apellido')?.value);
+       var Email=(this.crearCuentaForm.get('email')?.value);
+       var Direccion=(this.crearCuentaForm.get('direccion')?.value);      
+       var Password=(this.crearCuentaForm.get('contraseña')?.value);
+       this.crearcuenta(Nombre, Apellido, Email, Password, Direccion); 
+       
+        console.log(this.crearCuentaForm.value)
 
-  crearCuenta(){
-   // let usuario: Usuario = this.crearCuentaForm.value;
-   let usuario;
-   this.mensajeCrearCuenta = "creado" ;
-    /*this.usuarioService.gestionarSesion(usuario, environment.API_BASE_URL + '/cognito/crear-cuenta').then((result) => { 
-        this.mensajeCrearCuenta = result.Message ;
-        this.crearCuentaForm.reset()
-    }, (error) => {
-      this.mensajeCrearCuenta = error.Message;
-    });*/
+      }  
   }
 
+  /*    this.mensajeRegister = result.Message ;
+        this.msgType= "success";
+        this.crearCuentaForm.reset()
+    }, (error) => {
+      */
 
-}
