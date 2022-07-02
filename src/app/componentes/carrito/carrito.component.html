@@ -22,7 +22,7 @@
           <td>{{item.descripcion}}</td>
           <td >{{item.precio | currency}}</td>
           <td >{{item.cantidad}}</td>
-          <td><span><a (click)=eliminar(item.id) ><i class="material-icons">delete</i></a></span></td>
+          <td><span><a (click)=eliminar(item.id) style="cursor: pointer;" ><i class="material-icons">delete</i></a></span></td>
         </tr>
       </tbody>
       
@@ -32,7 +32,7 @@
   <h3 *ngIf="items.length<1" style="text-align: center;">No Hay productos para mostrar </h3>
   <div class="container mb-5" >
     <button (click)=onClick() class="btn btn-success" type="button" style="background-color: red;">Volver</button>
-    <button class="btn btn-danger" (click)="confirmarCompra()" type="button" style="background-color: green;">Confirmar Compra</button>
+    <button class="btn btn-danger" type="button" style="background-color: green;">Confirmar Compra</button>
     <p>Diferentes productos : {{items.length}}</p>
     <p>Total Unidades : {{totalCantidad}}</p>
     <p>Importe total : {{ total | currency }}</p>
