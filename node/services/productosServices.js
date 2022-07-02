@@ -1,4 +1,6 @@
-export const productosEnLaBaseDeDatos=[
+const productosRoutes = require('../routes/productosRoutes');
+
+const productosEnLaBaseDeDatos=[
     { id: 1, clasificacion: 'Chocolate', marca: 'Arcor',descripcion: 'chocolate blanco', precio: 233.2, cantidad: 1, disponible: true, imagen: './assets/arcor_miel_menta_bolsa.png' },
 
     { id: 2, clasificacion: 'Caramelos', marca: 'Arcor', descripcion: 'menta con chocolate x 200 GR', precio: 233.2, cantidad: 1, disponible: true,imagen: './assets/arcor_menta_bolsa.png' },
@@ -10,7 +12,7 @@ export const productosEnLaBaseDeDatos=[
     { id: 5, clasificacion: 'Barritas', marca: 'Arcor', descripcion: 'avena con chocolate', precio: 233.2, cantidad: 1, disponible: true,imagen: './assets/arcor_miel_menta_bolsa.png' }
 ];
 
-export const productospromo=[
+const productospromo=[
     { id: 6, clasificacion: 'combo-seños', marca: 'combo', descripcion: 'Cereal arcor, alfajor jorgito, jugo cepita, 25 caramelos surtidos, tableta beldent, cofler mini', precio: 510.0, cantidad: 1, disponible: true,imagen: './assets/combo-seños.png' },
     
     { id: 7, clasificacion: 'combo-cole', marca: 'combo', descripcion: 'Cereal arcor, alfajor jorgito, jugo cepita, 25 caramelos surtidos, tableta beldent, cofler mini', precio: 510.0, cantidad: 1, disponible: true,imagen: './assets/combo-cole.png' },
@@ -21,7 +23,7 @@ export const productospromo=[
 
 ];
 
-export const productoscandy=[
+const productoscandy=[
     { id: 10, clasificacion: 'Casamiento', marca: 'candy', descripcion: 'Caramelos 3 sabores a elección., Gomitas 3 sabores a elección, Chupetines Picodulce., Alfajores Jorgito, Tita & Rhodesia', precio: 39000, cantidad: 1, comen: '60 personas', disponible: true,imagen: './assets/candy-bar-casamiento.jpg' },
 
     { id: 11, clasificacion: 'Quince', marca: 'candy', descripcion: 'Caramelos 3 sabores a elección., Gomitas 3 sabores a elección, Chupetines Picodulce., Alfajores Jorgito, Tita & Rhodesia', precio: 32000, cantidad: 1,comen: '50 personas', disponible: true,imagen: './assets/candy-bar-xv.jpg' },

@@ -44,7 +44,7 @@ const appRoutes: Routes = [
   { path: 'promos', component: PromosComponent },
   { path: 'crearcuenta', component: CrearcuentaComponent },
   { path: 'detalle/:id', component: DetalleProductoComponent },
-  //{ path: 'producto/:id', component: CarritoComponent }
+  { path: 'producto/:id', component: CarritoComponent }
 ];
 
 @NgModule({

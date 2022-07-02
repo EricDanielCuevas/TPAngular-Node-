@@ -59,4 +59,11 @@ module.exports = (app) => {
         productosServices.deleteProducto(req.params.id);
         res.send()
     })
+
+    app.post('/confirmar-compra', (req, res) => {
+        console.log(req.body);
+        res.send();
+    })
+
+
 }

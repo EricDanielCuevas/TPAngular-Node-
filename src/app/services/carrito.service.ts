@@ -11,8 +11,13 @@ import { RestApiService } from '../services/restApiService';
 export class CarritoService {
   productos=productos;
   items =[];
+  apiURL = 'http://localhost:3000';
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
+
+  ngOnInit(){
+    this.items=this.listarCarrito();
+  }
 
   adicionarCarrito(producto){
     let encontrado=false;
@@ -20,27 +25,39 @@ export class CarritoService {
       if(elemento.id==producto.id){
         encontrado=true;
         elemento.cantidad+=1;
+        localStorage.setItem("carrito",JSON.stringify(this.items));
       }
     });
     if (!encontrado) {
-      this.items.push(producto);     
+      this.items.push(producto);   
+      localStorage.setItem("carrito",JSON.stringify(this.items)); 
     }
-    //localStorage.setItem("carrito",JSON.stringify(this.items));
+    
   }
 
   eliminar(id){
     const resultado= this.items.findIndex(e=>e.id==id);
-    this.items.splice(resultado,1);
-    return this.items;
+    if(this.items[resultado].cantidad > 1) { 
+      this.items[resultado].cantidad -= 1 } 
+      else { this.items.splice(resultado, 1) }
+      localStorage.setItem("carrito",JSON.stringify(this.items)); 
   }
 
   limpiarCarrito(){
     this.items=[];
+    localStorage.setItem("carrito",JSON.stringify(this.items));
     return this.items;
   }
 
-  listarCarrito(){
-    //this.items=JSON.parse(localStorage.getItem("carrito"));
-    return this.items; 
+  listarCarrito() {
+    this.items=JSON.parse(localStorage.getItem("carrito")) || [];  
+    return this.items;
   }
+
+  postConfirmarCompra(){
+    return this.http.post(this.apiURL + '/confirmar-compra',this.items);
+  }
+
+  
 }
+

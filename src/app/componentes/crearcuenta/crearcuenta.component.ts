@@ -40,7 +40,7 @@ export class CrearcuentaComponent implements OnInit {
         console.log(data);
       })
       
-      this.router.navigate(['/home']);
+      this.router.navigate(['/'])    
     }
      
      onSubmit() {
@@ -48,12 +48,13 @@ export class CrearcuentaComponent implements OnInit {
        var Apellido=(this.crearCuentaForm.get('apellido')?.value);
        var Email=(this.crearCuentaForm.get('email')?.value);
        var Direccion=(this.crearCuentaForm.get('direccion')?.value);      
-       var Password=(this.crearCuentaForm.get('contraseña')?.value);
+       var Password=(this.crearCuentaForm.get('password')?.value);
        this.crearcuenta(Nombre, Apellido, Email, Password, Direccion); 
        
-        console.log(this.crearCuentaForm.value)
+      console.log(Nombre)
 
-      }  
+      }
+
   }
 
   /*    this.mensajeRegister = result.Message ;
