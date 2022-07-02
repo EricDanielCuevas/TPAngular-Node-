@@ -11,54 +11,55 @@ import { CognitoService } from '../../services/cognito.service';
 export class CrearcuentaComponent implements OnInit {
 
   mensajeCrearCuenta: string;
-  crearCuentaForm: FormGroup;
-  //usuario =[];
-  nombre!: String;
-  apellido!: String;
-  direccion!: String;
-  email!: String;
-  password!: String;
+  //crearCuentaForm: any;
+  usuario =[];
+
   constructor(private _builder: FormBuilder, private router:Router, private servicioCognito: CognitoService){
     this.mensajeCrearCuenta = '';
+    this.crearCuentaForm = this._builder.group({
+      email: '',
+     password: '',
+     nombre: '', 
+     apellido: '',
+     direccion: ''
+    })
   }  
 
   ngOnInit(): void {
-    this.crearCuentaForm = this._builder.group({
-      nombre: new FormControl('', Validators.pattern(/^[a-zA-Z\s]+$/)),
-      apellido: new FormControl('', Validators.pattern(/^[a-zA-Z\s]+$/)),
-      direccion: new FormControl('', Validators.pattern(/^[A-Za-z0-9\s]+$/g)),
-      email: new FormControl('',[Validators.required,Validators.email]),
-      password: new FormControl('',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/)]),
-    });
   }
-
+  crearCuentaForm = new FormGroup({
+      nombre: new FormControl('', Validators.required),
+      apellido: new FormControl('', Validators.required),
+      email: new FormControl('',[Validators.required,Validators.email]),
+      direccion: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required, Validators.minLength(8)]),
+    });
+  
     crearcuenta(Nombre: string, Apellido:string, Email:string, Password: string, Direccion: string){
       this.servicioCognito.crearcuenta(Nombre, Apellido, Email, Password, Direccion).subscribe(data=> {
-
         console.log(data);
-        this.router.navigate(['/login'])    
-      }, error => { 
-        console.log(error);
-        this.crearCuentaForm.reset(); //resetea el formulario
-      
       })
+      
+      this.router.navigate(['/'])    
     }
      
      onSubmit() {
-       var Nombre =(this.crearCuentaForm.get('nombre')?.value);
+       var Nombre=(this.crearCuentaForm.get('nombre')?.value);
        var Apellido=(this.crearCuentaForm.get('apellido')?.value);
        var Email=(this.crearCuentaForm.get('email')?.value);
        var Direccion=(this.crearCuentaForm.get('direccion')?.value);      
        var Password=(this.crearCuentaForm.get('password')?.value);
+       this.crearcuenta(Nombre, Apellido, Email, Password, Direccion); 
+       
+      console.log(Nombre)
 
-        if (Nombre != '' && Apellido != '' && Email != '' && Direccion != '' && Password != '' ){
-          this.crearcuenta(Nombre, Apellido, Email, Password, Direccion); 
-        
-          window.alert(Nombre + " " + "Se ha creado su cuenta, verifiquela");
-        }else{
-          window.alert("Verifique los campos");
-        }
       }
 
   }
+
+  /*    this.mensajeRegister = result.Message ;
+        this.msgType= "success";
+        this.crearCuentaForm.reset()
+    }, (error) => {
+      */
 

@@ -8,8 +8,8 @@ const regAdress = /^[A-Za-z0-9\s]+$/g;
 const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).*$/;
 
 const poolData = {
-    UserPoolId : "us-east-1_M91mwzoeq", // Your user pool id here   
-    ClientId : "1hurpiotc60hcltv4vhn34igb" // Your client id here
+    UserPoolId : "us-east-1_EaLfyfIkb", // Your user pool id here   
+    ClientId : "780nenpk6juuce1avcl29tluve" // Your client id here
 }
 var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
@@ -64,29 +64,6 @@ crearcuenta: (req, res) => {
           });
         }
       });
-    },
-
-    verificar: (req, res) => {
-      const { Username, ConfirmationCode } = req.body;
-      //agregar validaciones
-      // if(Username !== undefined && ConfirmationCode !== undefined){}
-    
-      var userData = {
-        Username: Username,
-        Pool: userPool,
-      };
-      var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
-      cognitoUser.confirmRegistration(
-        ConfirmationCode,
-        true,
-        function (err, result) {
-          if (err) {
-            res.status(500).send(err);
-            return;
-          }
-          res.status(200).jsonp(result);
-        }
-      );
     },
 
     login: (req, res) => {

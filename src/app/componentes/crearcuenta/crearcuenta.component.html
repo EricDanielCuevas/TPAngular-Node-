@@ -14,39 +14,39 @@
                             <img src="./assets/logo-goloteca.png" alt="" width="150" height="150">
                         </div>
                 <div class="card-body">
-                    <form class="text-center" method="post" [formGroup]="crearCuentaForm" (ngSubmit)="onSubmit()">
+                    <form class="text-center" method="post" [formGroup]="crearCuentaForm" (ngSubmit)="onSubmit()"><!-- (ngSubmit)="onSubmit()"> -->
                         <div class="form-row">
                             <div class="mb-3 form-group">
                                 <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su email" required>
-                                <div class="text-danger" *ngIf="crearCuentaForm.get('email')?.hasError('pattern') || crearCuentaForm.get('email')?.hasError('required')">
+                                <!-- <div class="text-danger" *ngIf="crearCuentaForm.get('email')?.hasError('required')">
                                     <span>El email es obligatorio</span>
-                                </div>
+                                </div>-->
                             </div>
                                 
                             <div class="mb-3">
                                 <input type="text" formControlName="nombre" class="form-control" placeholder="Ingrese su nombre" required>                            
-                                 <div class="text-danger" *ngIf="crearCuentaForm.get('nombre')?.hasError('required')">
+                                 <!--  <div class="text-danger" *ngIf="crearCuentaForm.get('nombre')?.hasError('required')">
                                     <span>El nombre es obligatorio</span>
-                                </div>
+                                </div>-->
                             </div>
                             <div class="mb-3">
                                 <input type="text" formControlName="apellido" class="form-control" placeholder="Ingrese su apellido" required>                            
                             </div>
-                                <div class="text-danger" *ngIf="crearCuentaForm.get('apellido')?.hasError('required')">
+                                <!--   <div class="text-danger" *ngIf="crearCuentaForm.get('apellido')?.hasError('required')">
                                     <span>El apellido es obligatorio</span>
-                                </div>
+                                </div>-->
                             <div class="mb-3">
                                 <input type="text" formControlName="direccion" class="form-control" placeholder="Ingrese su direccion" required>                            
                             </div>
-                                <div class="text-danger" *ngIf="crearCuentaForm.get('direccion')?.hasError('required')">
+                                <!--<div class="text-danger" *ngIf="crearCuentaForm.get('direccion')?.hasError('required')">
                                         <span class="error-msg">La direccion es obligatoria</span>
-                                </div>
+                                </div>-->
 
                             <div class="mb-3">
                                 <input type="password" formControlName="password" class="form-control" placeholder="Ingrese su contraseña" required>                            
-                                <div class="text-danger" *ngIf="crearCuentaForm.get('password')?.hasError('required')">
-                                    <span class="error-msg">La contraseña es obligatoria y debe tener minimo 8 caracteres. Contener
-                                    por lo menos una mayuscula, una minuscula, un numero y un caracter especial</span>
+                                <div class="text-danger" *ngIf="crearCuentaForm.get('password')?.touched && crearCuentaForm.get('password')?.hasError('pattern')">
+                                    <span class="error-msg">La contraseña es obligatoria y debe tener entre 8 y 12 caracteres. Contener
+                                    por lo menos una letra mayuscula, una minuscula, un numero y un caracter especial</span>
                                 </div>
                             </div>
                                             
@@ -65,12 +65,7 @@
                             </div>
                             -->
                             <button  class="btn btn-primary d-block w-100" type="submit" [disabled]="!crearCuentaForm.valid" (click)="onSubmit()">Crear Cuenta</button> <!-- (click)="crearcuenta()"-->
-                            <div class="text-danger" *ngIf="!crearCuentaForm.get('email').valid && crearCuentaForm.touched">
-                                <span class="error-msg">El email ingresado no es valido</span>
-                            </div>
-                            <div class="text-danger" *ngIf="!crearCuentaForm.get('password').valid && crearCuentaForm.touched">
-                                <span class="error-msg">La contraseña ingresada no es valida</span>
-                            </div>
+
                       <!--  <button  class="btn btn-primary d-block w-100" type="submit" [disabled]="!crearCuentaForm.valid" (click)="crearcuenta(crearCuentaForm.value.nombre, crearCuentaForm.value.apellido, crearCuentaForm.value.email, crearCuentaForm.value.password, crearCuentaForm.value.direccion)">Crear Cuenta</button> -->
                     </div>
                     </form>
