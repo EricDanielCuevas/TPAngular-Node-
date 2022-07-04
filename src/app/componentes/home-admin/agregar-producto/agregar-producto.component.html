@@ -26,11 +26,11 @@
                                     cols="45"></textarea>
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control" formControlName="precio" placeholder="Precio"
+                                <input type="number" min="1" pattern="^[0-9]+" class="form-control" formControlName="precio" placeholder="Precio"
                                     required>
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control" formControlName="cantidad"
+                                <input type="number" min="1" pattern="^[0-9]+" class="form-control" formControlName="cantidad"
                                     placeholder="Cantidad" required>
                             </div>
                             <div class="mb-3">
