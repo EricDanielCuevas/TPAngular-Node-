@@ -11,8 +11,9 @@ import { RestApiService } from '../services/restApiService';
 export class CarritoService {
   productos=productos;
   items =[];
+  apiURL = 'http://localhost:3000';
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
 
   ngOnInit(){
     this.items=this.listarCarrito();
@@ -44,14 +45,17 @@ export class CarritoService {
 
   limpiarCarrito(){
     this.items=[];
+    localStorage.setItem("carrito",JSON.stringify(this.items));
     return this.items;
   }
 
   listarCarrito() {
-    this.items=JSON.parse(localStorage.getItem("carrito"));  
+    this.items=JSON.parse(localStorage.getItem("carrito")) || [];  
     return this.items;
   }
 
-  
+  postConfirmarCompra(){
+    return this.http.post(this.apiURL + '/confirmar-compra',this.items);
+  }
 }
 
