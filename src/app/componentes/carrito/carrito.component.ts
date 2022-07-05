@@ -42,7 +42,7 @@ export class CarritoComponent implements OnInit {
       if(this.items.length!=0){this.ngOnInit();}   
     }
   }
-  
+
   confirmarCompra(){
     this.carrito.postConfirmarCompra().subscribe({
       next:()=>{this.items=this.carrito.limpiarCarrito()},
@@ -52,7 +52,5 @@ export class CarritoComponent implements OnInit {
     });
     //this.carrito.postConfirmarCompra().subscribe(()=>{this.items=this.carrito.limpiarCarrito()});
   }
-
-  
 }
 

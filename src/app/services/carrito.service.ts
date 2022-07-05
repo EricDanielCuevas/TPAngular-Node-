@@ -57,7 +57,5 @@ export class CarritoService {
   postConfirmarCompra(){
     return this.http.post(this.apiURL + '/confirmar-compra',this.items);
   }
-
-  
 }
 
